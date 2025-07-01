@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 Investment Focus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/corporate_styles.css">
+    <link rel="stylesheet" href="../css/cover_slide_styles.css">
+    <link rel="stylesheet" href="../css/investment_focus_styles.css">
+    
+    <style>
+        /* Basic styles to ensure content is visible */
+        body {
+            padding-top: 60px; /* Adjust if header height changes */
+            padding-bottom: 100px; /* Adjust for footer and nav */
+        }
+    </style>
+
+    <style>
+        /* Iframe-specific overrides to hide header/footer */
+        header, .hatch-header {
+            display: none !important;
+        }
+        
+        footer, .hatch-footer {
+            display: none !important;
+        }
+        
+        .hatch-nav-controls {
+            display: none !important;
+        }
+        
+        body {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            overflow-x: hidden !important;
+        }
+        
+        .presentation-slide,
+        .slide,
+        .slide-content {
+            height: 100vh !important;
+            min-height: 100vh !important;
+        }
+        
+        /* Ensure full viewport usage */
+        html, body {
+            height: 100% !important;
+            width: 100% !important;
+        }
+        
+        /* Specific adjustments for investment focus slide */
+        .investment-focus-slide {
+            height: 100vh !important;
+            overflow-y: auto !important;
+            padding: 1rem !important;
+            box-sizing: border-box !important;
+        }
+        
+        .investment-focus-header {
+            margin-bottom: 1rem !important;
+        }
+        
+        .investment-focus-main-title {
+            font-size: 2rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .investment-focus-subtitle {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .investment-focus-content {
+            display: flex !important;
+            gap: 1rem !important;
+            height: calc(100vh - 120px) !important;
+            overflow-y: auto !important;
+        }
+        
+        .investment-focus-card {
+            flex: 1 !important;
+            height: fit-content !important;
+            max-height: calc(100vh - 100px) !important;
+            overflow: hidden !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .investment-focus-card-image {
+            height: 160px !important;
+            object-fit: cover !important;
+        }
+        
+        .investment-focus-card-quote {
+            max-height: 200px !important;
+            overflow: hidden !important;
+            font-size: 0.8rem !important;
+            line-height: 1.2 !important;
+        }
+        
+        .investment-focus-card-quote p {
+            margin-bottom: 0.3rem !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<style>
+    /* Header Styling */
+    .hatch-header.fixed-top {
+        background: white !important;
+        border-bottom: 1.5px solid #E84B37 !important;
+        padding: 0 1rem !important; /* Adjusted padding */
+        z-index: 1050 !important;
+        box-shadow: 0 4px 15px rgba(232, 75, 55, 0.15) !important;
+        height: 3%;
+    }
+
+    .hatch-header .row {
+        height: 100%;
+        position: relative;
+    }
+
+    #header-title {
+        color: #E84B37 !important;
+        font-weight: bold !important;
+        font-size: 1.25rem !important;
+        margin: 0 !important;
+        font-family: 'Playfair Display', serif !important;
+        letter-spacing: 0.5px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #header-logo {
+        max-height: 35px !important;
+        width: auto !important;
+        object-fit: contain !important;
+        filter: none !important;
+    }
+</style>
+<header class="container-fluid fixed-top hatch-header">
+    <div class="row align-items-center">
+        <div class="col-4 text-start ps-3">
+            <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Logo" id="header-logo">
+        </div>
+        <div class="col-4 text-center">
+            <h5 id="header-title">HATCH ADVISORY</h5>
+        </div>
+        <div class="col-4 text-end pe-3">
+            <!-- Optional right-aligned header content -->
+        </div>
+    </div>
+</header>
+
+
+<main class="container-fluid p-0">
+    <div class="slide investment-focus-slide" id="investment-focus-slide">
+<div class="investment-focus-header">
+<h1 class="investment-focus-main-title">Investment Focus</h1>
+<h2 class="investment-focus-subtitle">Teine Energy primarily focuses on investing in low-risk, geographically concentrated conventional and heavy oil assets.</h2>
+</div>
+<div class="investment-focus-content">
+<div class="investment-focus-card cost-efficiency">
+<img alt="Cost Efficiency" class="investment-focus-card-image" src="https://img.b2bpic.net/premium-photo/graph-income-growth-electronic-tablet-with-graph-growth-rates-profit-currency-chart-smartphone_494741-78377.jpg"/>
+<div class="investment-focus-card-title">Cost efficiency</div>
+<div class="investment-focus-card-quote">
+<p>"We've been involved in Saskatchewan since approximately 2005. Our focus has been the light oil development in Kindersley area. That development itself has grown significantly over a 10-year time frame and is still a place where we expect to be investing for years to come."</p>
+<p class="quote-author">- Jason Denney, President and CEO of Teine Energy</p>
+</div>
+<div class="investment-focus-card-quote">
+<p>"With productive assets in Alberta and Saskatchewan, we are a low-cost operator, focused on scalable, long-term profitability."</p>
+<p class="quote-author">- Teine Energy website</p>
+</div>
+</div>
+<div class="investment-focus-card productivity">
+<img alt="Increased well productivity" class="investment-focus-card-image" src="https://img.b2bpic.net/premium-photo/oil-fields-concept-oil-drill-rig-pump-jack-particle-style-design_89681-205.jpg"/>
+<div class="investment-focus-card-title">Increased well productivity</div>
+<div class="investment-focus-card-quote">
+<p>"With the dramatic change in market conditions, we are moving aggressively towards solutions that increase our bottom line. WatchDog provides our operators with a very efficient way to visit our wells (virtually) and concentrate their time on the activities and assets which require attention"</p>
+<p class="quote-author">- Clint Sarmaga, Operations Manager at Teine</p>
+</div>
+<div class="investment-focus-card-quote">
+<p>"Teine is focused on continually optimizing our operating efficiencies for all areas in which we operate, and in particular our Viking and Bakken assets in southwest Saskatchewan. As our asset base grows, we are driving to increase surveillance capabilities while operating safely and with high environmental standards."</p>
+<p class="quote-author">- Barett Pedersen, Manager of Optimization for Teine</p>
+</div>
+</div>
+<div class="investment-focus-card recovery">
+<img alt="Improved reservoir recovery" class="investment-focus-card-image" src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets//oiltank02.jpg"/>
+<div class="investment-focus-card-title">Improved reservoir recovery</div>
+<div class="investment-focus-card-quote">
+<p>"We are involved in some enhanced oil recovery projects. Those projects are also spurred by government incentives, so it's again made it a very good place for us to not only invest but also to test what new technology and advanced recovery in many of our reservoirs. Technology has essentially driven the entire play that were involved in today."</p>
+<p class="quote-author">- Jason Denney, President and CEO of Teine Energy</p>
+</div>
+<div class="investment-focus-card-quote">
+<p>"I think that horizontal development, multistage fracking even 10 years ago was fairly new, and it's been places like Saskatchewan that have incentivized producers like ourselves to utilize new technology, perfect it and enhance our own returns which is again what drives a lot of the investment that is coming into the province."</p>
+<p class="quote-author">- Jason Denney, President and CEO of Teine Energy</p>
+</div>
+</div>
+</div>
+</div>
+
+</main>
+
+<style>
+    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
+    :root {
+        /* Hatch Brand Colors */
+        --hatch-orange: #E84B37;
+        --hatch-medium-gray: #595959;
+        --hatch-white: #FFFFFF;
+        /* Spacing */
+        --footer-height: 40px;
+        --spacing-md: 1rem;
+    }
+
+    /* ===== HATCH CORPORATE FOOTER ===== */
+    .hatch-footer {
+        background: var(--hatch-white);
+        border-top: 1.5px solid var(--hatch-orange);
+        padding: 0 var(--spacing-md); /* Use padding on sides, not top/bottom */
+        z-index: 1050;
+        box-shadow: 0 -4px 15px rgba(232, 75, 55, 0.15);
+        height: var(--footer-height);
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Vertical centering */
+        justify-content: space-between; /* Space out content */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box; /* Ensure padding is included in height */
+    }
+
+    .hatch-footer small {
+        color: var(--hatch-medium-gray);
+        font-size: 0.85rem;
+    }
+
+    .hatch-footer-logo {
+        max-height: 25px;
+        width: auto;
+        object-fit: contain;
+    }
+</style>
+<footer class="hatch-footer">
+    <small>&copy; 2025 Hatch Advisory. All Rights Reserved.</small>
+    <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Advisory Logo" class="hatch-footer-logo">
+</footer>
+
+
+<style>
+    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
+    :root {
+        /* Hatch Brand Colors */
+        --hatch-orange: #E84B37;
+        --hatch-orange-alt: #E75300;
+        --hatch-medium-gray: #595959;
+        --hatch-light-gray: #A0AEC0;
+        --hatch-white: #FFFFFF;
+
+        /* Sizing & Spacing */
+        --footer-height: 40px; /* Assuming footer is 40px */
+        --card-border-radius: 8px;
+
+        /* Spacing Scale */
+        --spacing-sm: 0.5rem;   /* 8px */
+        --spacing-md: 1rem;     /* 16px */
+        --spacing-lg: 1.5rem;   /* 24px */
+    }
+
+    /* ===== NAVIGATION CONTROLS - Hatch Button Standards ===== */
+    .hatch-nav-controls {
+        position: fixed;
+        /* Position it above the footer, accounting for footer height and desired gap */
+        bottom: calc(var(--footer-height) + var(--spacing-lg)); 
+        right: var(--spacing-lg);
+        z-index: 1000;
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .hatch-nav-button {
+        background: var(--hatch-orange-alt);
+        color: var(--hatch-white);
+        border: none;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--card-border-radius);
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 8px rgba(231, 83, 0, 0.3);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .hatch-nav-button:hover {
+        background: var(--hatch-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(231, 83, 0, 0.4);
+    }
+
+    .hatch-nav-button:disabled {
+        background: var(--hatch-light-gray);
+        color: var(--hatch-medium-gray);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+</style>
+<div id="nav-controls" class="hatch-nav-controls">
+    <button id="prev-slide" class="hatch-nav-button">Previous</button>
+    <button id="next-slide" class="hatch-nav-button">Next</button>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- The app.js script is no longer needed in this static build process -->
+
+</body>
+</html>

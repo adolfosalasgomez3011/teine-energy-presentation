@@ -1,0 +1,538 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* Use min-height to ensure it fills viewport */
+    margin: 0;
+    padding-top: 70px; /* Space for fixed header */
+    padding-bottom: 70px; /* Space for fixed footer */
+    box-sizing: border-box; /* Include padding in height calculation */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* This ensures that the slide content itself fills the main area */
+.slide-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Prevents flexbox overflow */
+}
+
+/* Header Styling */
+header.fixed-top {
+    background: var(--hatch-white) !important;
+    border-bottom: 3px solid var(--hatch-orange) !important;
+    padding: var(--spacing-md) 0 !important;
+    z-index: 1050 !important;
+    box-shadow: 0 4px 15px rgba(232, 75, 55, 0.15) !important;
+    height: var(--header-height);
+}
+
+#header-title {
+    color: var(--hatch-orange) !important;
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
+    margin: 0 !important;
+    font-family: 'Playfair Display', serif !important;
+    letter-spacing: 0.5px;
+}
+
+#header-logo {
+    max-height: 35px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    filter: none !important;
+}
+
+/* ===== HATCH CORPORATE FOOTER ===== */
+footer.fixed-bottom {
+    background: var(--hatch-white) !important;
+    border-top: 3px solid var(--hatch-orange) !important;
+    padding: var(--spacing-md) 0 !important;
+    z-index: 1050 !important;
+    box-shadow: 0 -4px 15px rgba(232, 75, 55, 0.15) !important;
+    height: var(--footer-height);
+}
+
+footer small {
+    color: var(--hatch-medium-gray) !important;
+    font-size: 0.85rem !important;
+}
+
+#footer-logo {
+    max-height: 25px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    filter: none !important;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+main#presentation-container {
+    margin-top: calc(var(--header-height) + var(--spacing-lg)) !important;
+    margin-bottom: calc(var(--footer-height) + var(--spacing-lg)) !important;
+    padding: var(--spacing-lg) !important;
+    max-width: var(--max-container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== SLIDE CONTAINER - Hatch Card Standards ===== */
+.slide {
+    background: var(--hatch-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+    display: block; /* Changed from none to block to make all slides visible by default */
+}
+
+.slide:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-5px);
+    border-color: var(--hatch-orange-alt);
+}
+
+/* ===== SLIDE HEADERS ===== */
+.slide-header h1 {
+    color: var(--teine-blue) !important;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.slide-header.ai-style-change-1 {
+      display: block;
+      padding-left: 20px;
+      /* If you also wanted space from the right edge, add: */
+      /* padding-right: 20px; */
+      /* Important: Ensure this rule *removes* or is *not* overridden by any display: flex; or display: grid; rules applied to .slide-header */
+}
+
+.slide-subtitle {
+    color: var(--hatch-medium-gray);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xl);
+    font-weight: 400;
+}
+
+/* ===== NAVIGATION CONTROLS - Hatch Button Standards ===== */
+#nav-controls {
+    position: fixed;
+    bottom: calc(var(--footer-height) + var(--spacing-lg));
+    right: var(--spacing-lg);
+    z-index: 1000;
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.nav-button {
+    background: var(--hatch-orange-alt);
+    color: var(--hatch-white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--card-border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 8px rgba(231, 83, 0, 0.3);
+}
+
+.nav-button:hover {
+    background: var(--hatch-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 83, 0, 0.4);
+}
+
+.nav-button:disabled {
+    background: var(--hatch-light-gray);
+    color: var(--hatch-medium-gray);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===== LEAFLET CUSTOM STYLING ===== */
+.leaflet-control-zoom a {
+    background-color: var(--hatch-white) !important;
+    border-color: var(--border-gray) !important;
+    color: var(--hatch-gray) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: var(--hatch-background) !important;
+    border-color: var(--teine-blue) !important;
+}
+
+/* Custom Map Marker CSS Filters */
+.viking-marker .leaflet-marker-icon {
+    filter: sepia(100%) hue-rotate(10deg) saturate(150%);
+}
+
+.bakken-marker .leaflet-marker-icon {
+    filter: sepia(100%) hue-rotate(90deg) saturate(120%);
+}
+
+.duvernay-marker .leaflet-marker-icon {
+    filter: sepia(100%) hue-rotate(180deg) saturate(130%);
+}
+
+.chauvin-marker .leaflet-marker-icon {
+    filter: sepia(100%) hue-rotate(45deg) saturate(140%);
+}
+
+/* Asset Marker Badges */
+.asset-marker-badge {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* ===== CUSTOM MAP MARKERS & BADGES ===== */
+.custom-marker-container {
+    position: relative;
+    text-align: center;
+    width: 80px; /* Container width */
+    height: 40px; /* Container height */
+}
+
+.marker-pin {
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 50% 0;
+    border: 2px solid #FFFFFF;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -17px; /* Adjust for centering */
+    margin-top: -17px; /* Adjust for centering */
+}
+
+.custom-marker-container .marker-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* ===== CUSTOM TOOLTIP STYLES ===== */
+.asset-custom-tooltip {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    /* Allow long words/strings to break and wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.asset-custom-tooltip .leaflet-tooltip-content {
+    padding: 0;
+}
+
+.asset-tooltip {
+    background: #fff;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    padding: var(--spacing-md);
+    min-width: 300px;
+    max-width: 350px;
+    border: 1px solid var(--border-gray);
+    /* Add word break to prevent overflow */
+    word-break: break-all;
+}
+
+/* Marker popups */
+.leaflet-popup-content {
+    padding: var(--spacing-sm);
+    margin: 0 !important;
+}
+
+.asset-popup-content .tooltip-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+}
+
+.asset-popup-content .tooltip-metric {
+    font-size: 0.85rem;
+    padding: var(--spacing-xs) 0;
+    margin-bottom: var(--spacing-xs);
+}
+
+.asset-popup-content .tooltip-section {
+    margin-top: var(--spacing-sm);
+}
+
+.asset-popup-content .tooltip-section p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.asset-popup {
+    min-width: 250px;
+}
+
+.popup-title {
+    color: var(--teine-blue);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs); /* Reduced margin */
+    font-size: 1.0rem; /* Reduced font size */
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.popup-metric {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0; /* Reduced margin */
+    padding: 5px 0; /* Reduced padding */
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.popup-metric:last-child {
+    border-bottom: none; /* Remove border for the last metric */
+}
+
+.metric-label {
+    font-weight: 600;
+    color: var(--hatch-medium-gray);
+}
+
+.metric-value {
+    color: var(--hatch-orange);
+    font-weight: 600;
+}
+
+.popup-description p {
+    margin-top: var(--spacing-sm); /* Add some space before description */
+    margin-bottom: 0; /* Remove bottom margin */
+    color: var(--hatch-gray);
+    line-height: 1.4; /* Adjust line height */
+}
+
+/* ===== NEW ASSET TOOLTIP STYLES ===== */
+.asset-custom-tooltip {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--teine-blue);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    padding: var(--spacing-md);
+    max-width: 320px; /* Increased max-width */
+    pointer-events: auto; /* Allow interaction if needed in future */
+    /* Fix for text overflow */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.asset-tooltip-title {
+    color: var(--teine-blue);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-gray);
+    padding-bottom: var(--spacing-sm);
+}
+
+.asset-tooltip-metric {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.asset-tooltip-metric .label {
+    font-weight: 600;
+    color: var(--hatch-medium-gray);
+}
+
+.asset-tooltip-metric .value {
+    font-weight: 600;
+    color: var(--hatch-orange);
+}
+
+.asset-tooltip-description {
+    font-size: 0.9rem;
+    color: var(--hatch-gray);
+    margin-top: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+
+/* Hover tooltips */
+.hover-tooltip {
+    background: var(--hatch-white);
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    padding: var(--spacing-sm);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media (max-width: 768px) {
+    #nav-controls {
+        bottom: calc(var(--footer-height) + var(--spacing-sm));
+        right: var(--spacing-sm);
+    }
+    
+    .slide {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+*:focus {
+    outline: 2px solid var(--hatch-orange-alt);
+    outline-offset: 2px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    header, footer, #nav-controls {
+        display: none !important;
+    }
+    
+    main#presentation-container {
+        margin: 0 !important;
+        padding: var(--spacing-lg) !important;
+    }
+    
+    .slide {
+        display: flex !important;
+        box-shadow: none !important;
+        border: 1px solid var(--border-gray) !important;
+        page-break-after: always;
+    }
+}        
+/* ===== COVER SLIDE SPECIFIC STYLES ===== */
+#cover-slide {
+    padding: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - 40px);
+}
+
+.cover-slide-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-slide-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+}
+
+.cover-logo-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+.cover-logo {
+    max-height: 120px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.cover-slide-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+.cover-slide-title span {
+    display: block;
+    line-height: 1.2;
+}
+
+/* ===== MAP STYLES ===== */
+#asset-map-leaflet {
+    height: 500px;
+    width: calc(100% - 40px);
+    border-radius: var(--card-border-radius);
+    margin-top: var(--spacing-md);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+.marker-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* The transform will be set by Leaflet for placement */
+  pointer-events: none; /* Let marker image handle events */
+}
+.marker-container .leaflet-marker-icon {
+  display: block;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+.marker-label {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(-8px); /* 8px gap above marker */
+  z-index: 10;
+  color: #fff;
+  background: rgba(0,0,0,0.85);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  border: 2px solid #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 2px 6px #000, 0 0 2px #fff;
+}
+.viking-badge { background: #E84B37; border-color: #fff; color: #fff; }
+.bakken-badge { background: #28a745; border-color: #fff; color: #fff; }
+.duvernay-badge { background: #17a2b8; border-color: #fff; color: #fff; }
+.chauvin-badge { background: #ffc107; border-color: #fff; color: #fff; }

@@ -1,0 +1,54 @@
+/* Cover Slide Specific Styles */
+#cover-slide {
+    height: 100vh; /* This sets the height to 100% of the viewport height */
+    padding: 0 3rem; /* Add padding to the sides */
+    background-image: url('https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/TeineMainBackground01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box; /* Constrain the background to the content box */
+    box-sizing: border-box; /* Ensure padding is calculated correctly */
+}
+
+.cover-slide-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-slide-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+}
+
+.cover-logo-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+.cover-logo {
+    max-height: 120px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.cover-slide-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+.cover-slide-title span {
+    display: block;
+    line-height: 1.2;
+}

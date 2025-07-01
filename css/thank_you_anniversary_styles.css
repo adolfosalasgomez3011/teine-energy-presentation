@@ -1,0 +1,170 @@
+/* Thank You / Anniversary Slide Styles */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --hatch-red: #E84B37;
+    --hatch-white: #FFFFFF;
+    --hatch-dark-gray: #333333;
+    --hatch-light-gray: #f0f0f0;
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition-medium: 0.3s ease;
+}
+
+/* ===== SLIDE LAYOUT ===== */
+.thank-you-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 180px); /* Adjusted height to ensure nav is not hidden */
+    background-color: var(--hatch-red);
+    color: var(--hatch-white);
+    font-family: var(--font-family-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-content {
+    text-align: left;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+/* ===== TEXT STYLES ===== */
+.thank-you-text {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.info-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* ===== PLUS ICON ===== */
+.plus-icon {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 3rem;
+    font-weight: 200;
+}
+
+/* ===== ANNIVERSARY BADGE - NEW IMPRESSIVE STYLE ===== */
+.anniversary-badge-container {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    cursor: pointer;
+    z-index: 100; /* Ensure it's on top */
+}
+
+.anniversary-badge {
+    width: 220px;
+    height: 220px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 50%, #044597, #192b53); /* Hatch Blue gradient */
+    border-radius: 50%;
+    box-shadow: 
+        0 0 15px rgba(4, 69, 151, 0.6), /* Outer blue glow */
+        inset 0 0 20px rgba(0,0,0,0.4), /* Inner shadow for depth */
+        0 10px 20px rgba(0,0,0,0.3); /* Drop shadow */
+    color: white;
+    font-family: 'Georgia', serif; /* Elegant serif font */
+    border: 5px solid #fff; /* White border to make it pop */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anniversary-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 25px rgba(4, 69, 151, 0.8),
+        inset 0 0 25px rgba(0,0,0,0.5),
+        0 15px 30px rgba(0,0,0,0.4);
+}
+
+.anniversary-badge::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.anniversary-badge .number {
+    font-size: 7rem; /* Large number */
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.anniversary-badge .text {
+    position: absolute;
+    bottom: 45px; /* Position "YEARS" below the number */
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 3;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ===== HISTORY POPUP CARD ===== */
+.hatch-history-popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the badge */
+    right: 0;
+    margin-top: 15px;
+    width: 320px;
+    background-color: var(--hatch-white);
+    color: var(--hatch-dark-gray);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 110;
+    border: 1px solid #ddd;
+    font-family: var(--font-family-primary);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.anniversary-badge-container:hover .hatch-history-popup {
+    display: block; /* Show on hover */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hatch-history-popup h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--hatch-red);
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--hatch-light-gray);
+    padding-bottom: 8px;
+}
+
+.hatch-history-popup p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.hatch-history-popup a {
+    color: var(--hatch-red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hatch-history-popup a:hover {
+    text-decoration: underline;
+}

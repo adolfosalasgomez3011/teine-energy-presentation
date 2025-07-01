@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 Org Chart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/corporate_styles.css">
+    <link rel="stylesheet" href="../css/cover_slide_styles.css">
+    <link rel="stylesheet" href="../css/organization_styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        /* Basic styles to ensure content is visible */
+        body {
+            padding-top: 60px; /* Adjust if header height changes */
+            padding-bottom: 100px; /* Adjust for footer and nav */
+        }
+    </style>
+
+    <style>
+        /* Iframe-specific overrides to hide header/footer */
+        header, .hatch-header {
+            display: none !important;
+        }
+        
+        footer, .hatch-footer {
+            display: none !important;
+        }
+        
+        .hatch-nav-controls {
+            display: none !important;
+        }
+        
+        body {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            overflow-x: hidden !important;
+        }
+        
+        .presentation-slide,
+        .slide,
+        .slide-content {
+            height: 100vh !important;
+            min-height: 100vh !important;
+        }
+        
+        
+        /* Ensure full viewport usage */
+        html, body {
+            height: 100% !important;
+            width: 100% !important;
+        }
+        
+        /* Specific adjustments for org chart slide */
+        .container.pt-4.pb-4 {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+        
+        /* Make containers wider for org chart */
+        #org-chart-slide .container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+        }
+        
+        .org-chart-container {
+            width: 100% !important;
+            overflow-x: auto !important;
+            min-width: 1200px !important;
+        }
+        
+        #google-org-chart {
+            width: 100% !important;
+            height: calc(100vh - 120px) !important;
+            max-height: 700px !important;
+            min-width: 1200px !important;
+        }
+        
+        /* Force Google Charts org chart to be wider */
+        #google-org-chart .google-visualization-orgchart-table {
+            width: 100% !important;
+            min-width: 1200px !important;
+        }
+        
+        #google-org-chart .google-visualization-orgchart-node {
+            min-width: 180px !important;
+            margin: 0 15px !important;
+        }
+        
+        /* Position note and copyright at bottom left */
+        .org-bottom-info {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #666;
+            max-width: 300px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .org-bottom-info .org-note {
+            margin-bottom: 4px;
+        }
+        
+        .org-bottom-info .org-copyright {
+            font-size: 0.7rem;
+            color: #999;
+        }
+    </style>
+
+</head>
+<body>
+
+<style>
+    /* Header Styling */
+    .hatch-header.fixed-top {
+        background: white !important;
+        border-bottom: 1.5px solid #E84B37 !important;
+        padding: 0 1rem !important; /* Adjusted padding */
+        z-index: 1050 !important;
+        box-shadow: 0 4px 15px rgba(232, 75, 55, 0.15) !important;
+        height: 3%;
+    }
+
+    .hatch-header .row {
+        height: 100%;
+        position: relative;
+    }
+
+    #header-title {
+        color: #E84B37 !important;
+        font-weight: bold !important;
+        font-size: 1.25rem !important;
+        margin: 0 !important;
+        font-family: 'Playfair Display', serif !important;
+        letter-spacing: 0.5px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #header-logo {
+        max-height: 35px !important;
+        width: auto !important;
+        object-fit: contain !important;
+        filter: none !important;
+    }
+</style>
+<header class="container-fluid fixed-top hatch-header">
+    <div class="row align-items-center">
+        <div class="col-4 text-start ps-3">
+            <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Logo" id="header-logo">
+        </div>
+        <div class="col-4 text-center">
+            <h5 id="header-title">HATCH ADVISORY</h5>
+        </div>
+        <div class="col-4 text-end pe-3">
+            <!-- Optional right-aligned header content -->
+        </div>
+    </div>
+</header>
+
+
+<main class="container-fluid p-0">
+    <div class="slide" id="org-chart-slide">
+<div class="container pt-4 pb-4">
+<h2 class="org-main-title">Organization Structure</h2>
+<div class="org-chart-container">
+<div id="google-org-chart"></div>
+</div>
+</div>
+
+<!-- Bottom left info panel -->
+<div class="org-bottom-info">
+    <div class="org-note">
+        <strong>Note:</strong> The org structure is not exhaustive of all the employees in the company
+    </div>
+    <div class="org-copyright">
+        Copyright © Hatch 2024. All Rights Reserved.
+    </div>
+</div>
+</div>
+<!-- Google Charts Org Chart Script -->
+<script type="text/javascript">
+        // Load Google Charts
+        google.charts.load('current', {packages:["orgchart"]});
+        google.charts.setOnLoadCallback(drawOrgChart);
+
+        // Executive data with photos and bio information
+        const executiveData = {
+            'Jason "Jay" Denney': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/jason_denney_profile.jpg',
+                title: 'President and CEO',
+                bio: 'Jason Denney leads Teine Energy with extensive experience in oil and gas operations. Under his leadership, the company has focused on low-cost, repeatable, long reserve life assets.',
+                experience: '15+ years in energy sector leadership',
+                education: 'MBA, Engineering background'
+            },
+            'Ken Hillier': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/ken_hillier_profile.jpg',
+                title: 'Senior Vice President & CFO',
+                bio: 'Ken Hillier oversees all financial operations and strategic financial planning for Teine Energy.',
+                experience: '12+ years in finance and accounting',
+                education: 'CPA, Finance degree'
+            },
+            'Paul Ringrose': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/paul_ringrose_profile.jpg',
+                title: 'Senior Vice President & COO',
+                bio: 'Paul Ringrose manages daily operations and ensures operational excellence across all Teine Energy assets.',
+                experience: '18+ years in operations management',
+                education: 'Engineering degree, Operations specialization'
+            },
+            'Melanie Pedersen': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/melanie_padersen_profile.jpg',
+                title: 'Senior Vice President, Geoscience',
+                bio: 'Melanie Pedersen leads the geoscience team, focusing on reservoir engineering and geological analysis.',
+                experience: '14+ years in geoscience',
+                education: 'PhD in Geology, Professional Geoscientist'
+            },
+            'Kirk Mcnamara': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/kirk_mcnamara_profile.jpg',
+                title: 'Vice President, Corporate Planning',
+                bio: 'Kirk Mcnamara oversees strategic planning and corporate development initiatives.',
+                experience: '10+ years in strategic planning',
+                education: 'MBA, Strategic Management'
+            },
+            'Glen Bos': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/glen_bos_profile.jpg',
+                title: 'Vice President, Drilling & Completions',
+                bio: 'Glen Bos manages drilling operations and completion strategies to maximize well productivity.',
+                experience: '16+ years in drilling operations',
+                education: 'Engineering degree, Drilling specialization'
+            },
+            'Tyler Homan': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/tyler_homan_profile.png',
+                title: 'Vice President, Production',
+                bio: 'Tyler Homan oversees production operations and optimization across all Teine Energy assets.',
+                experience: '12+ years in production management',
+                education: 'Engineering degree, Production focus'
+            },
+            'Russell Cumberland': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/russel_cumberland_profile.png',
+                title: 'Vice President, Exploitation',
+                bio: 'Russell Cumberland leads exploitation strategies and asset development opportunities.',
+                experience: '11+ years in asset development',
+                education: 'Engineering degree, Reservoir focus'
+            },
+            'Eric Perez': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/eric_perez_profile.jpg',
+                title: 'Vice President, People and Culture',
+                bio: 'Eric Perez oversees human resources, organizational development, and company culture initiatives.',
+                experience: '9+ years in HR leadership',
+                education: 'MBA, Human Resources specialization'
+            },
+            'Kim Verrier': {
+                photo: 'https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/kim_verrier_profile.png',
+                title: 'Vice President, Finance and Treasurer',
+                bio: 'Kim Verrier manages financial operations, treasury functions, and financial reporting.',
+                experience: '8+ years in corporate finance',
+                education: 'CPA, Finance and Accounting'
+            }
+        };
+
+        function drawOrgChart() {
+            const data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('string', 'Manager');
+            data.addColumn('string', 'ToolTip');
+
+            // Add the organization structure
+            data.addRows([
+                [
+                    {
+                        'v': 'Jason "Jay" Denney',
+                        'f': '<div class="org-node">Jason "Jay" Denney<div style="color:red; font-style:italic">President and CEO</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/jason_denney_profile.jpg" style="width:60px;height:60px;border-radius:50%;margin-top:5px;"></div>'
+                    },
+                    '',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Ken Hillier',
+                        'f': '<div class="org-node">Ken Hillier<div style="color:blue; font-style:italic">Senior VP & CFO</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/ken_hillier_profile.jpg" style="width:50px;height:50px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Paul Ringrose',
+                        'f': '<div class="org-node">Paul Ringrose<div style="color:blue; font-style:italic">Senior VP & COO</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/paul_ringrose_profile.jpg" style="width:50px;height:50px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Melanie Pedersen',
+                        'f': '<div class="org-node">Melanie Pedersen<div style="color:blue; font-style:italic">Senior VP, Geoscience</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/melanie_padersen_profile.jpg" style="width:50px;height:50px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Kirk Mcnamara',
+                        'f': '<div class="org-node">Kirk Mcnamara<div style="color:green; font-style:italic">VP, Corporate Planning</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/kirk_mcnamara_profile.jpg" style="width:45px;height:45px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Glen Bos',
+                        'f': '<div class="org-node">Glen Bos<div style="color:green; font-style:italic">VP, Drilling & Completions</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/glen_bos_profile.jpg" style="width:45px;height:45px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Tyler Homan',
+                        'f': '<div class="org-node">Tyler Homan<div style="color:green; font-style:italic">VP, Production</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/tyler_homan_profile.png" style="width:45px;height:45px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Russell Cumberland',
+                        'f': '<div class="org-node">Russell Cumberland<div style="color:green; font-style:italic">VP, Exploitation</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/russel_cumberland_profile.png" style="width:45px;height:45px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Eric Perez',
+                        'f': '<div class="org-node">Eric Perez<div style="color:green; font-style:italic">VP, People and Culture</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/eric_perez_profile.jpg" style="width:45px;height:45px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Jason "Jay" Denney',
+                    'Click to view details'
+                ],
+                [
+                    {
+                        'v': 'Kim Verrier',
+                        'f': '<div class="org-node">Kim Verrier<div style="color:green; font-style:italic">VP, Finance and Treasurer</div><img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/kim_verrier_profile.png" style="width:45px;height:45px;border-radius:50%;margin-top:3px;"></div>'
+                    },
+                    'Ken Hillier',
+                    'Click to view details'
+                ]
+            ]);
+
+            const options = {
+                allowHtml: true,
+                allowCollapse: false,
+                nodeClass: 'org-chart-node',
+                selectedNodeClass: 'org-chart-selected',
+                size: 'large',
+                width: '100%',
+                height: '600px'
+            };
+
+            const chart = new google.visualization.OrgChart(document.getElementById('google-org-chart'));
+
+            // Add click event listener
+            google.visualization.events.addListener(chart, 'select', function() {
+                const selection = chart.getSelection();
+                if (selection.length > 0) {
+                    const row = selection[0].row;
+                    const name = data.getValue(row, 0);
+                    showExecutiveDetails(name);
+                }
+            });
+
+            chart.draw(data, options);
+        }
+
+        function showExecutiveDetails(name) {
+            const executive = executiveData[name];
+            if (!executive) return;
+
+            const modalBody = document.getElementById('executiveModalBody');
+            modalBody.innerHTML = `
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="${executive.photo}" alt="${name}" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h5>${name}</h5>
+                        <p class="text-muted">${executive.title}</p>
+                    </div>
+                    <div class="col-md-8">
+                        <h6>Biography</h6>
+                        <p>${executive.bio}</p>
+                        
+                        <h6>Experience</h6>
+                        <p>${executive.experience}</p>
+                        
+                        <h6>Education</h6>
+                        <p>${executive.education}</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('executiveModalLabel').textContent = `${name} - ${executive.title}`;
+            
+            // Show the modal
+            const modal = new bootstrap.Modal(document.getElementById('executiveModal'));
+            modal.show();
+        }
+    </script>
+<!-- Executive Detail Modal -->
+<div aria-hidden="true" aria-labelledby="executiveModalLabel" class="modal fade" id="executiveModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="executiveModalLabel">Executive Details</h5>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body" id="executiveModalBody">
+<!-- Executive details will be populated here -->
+</div>
+</div>
+</div>
+</div>
+
+</main>
+
+<style>
+    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
+    :root {
+        /* Hatch Brand Colors */
+        --hatch-orange: #E84B37;
+        --hatch-medium-gray: #595959;
+        --hatch-white: #FFFFFF;
+        /* Spacing */
+        --footer-height: 40px;
+        --spacing-md: 1rem;
+    }
+
+    /* ===== HATCH CORPORATE FOOTER ===== */
+    .hatch-footer {
+        background: var(--hatch-white);
+        border-top: 1.5px solid var(--hatch-orange);
+        padding: 0 var(--spacing-md); /* Use padding on sides, not top/bottom */
+        z-index: 1050;
+        box-shadow: 0 -4px 15px rgba(232, 75, 55, 0.15);
+        height: var(--footer-height);
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Vertical centering */
+        justify-content: space-between; /* Space out content */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box; /* Ensure padding is included in height */
+    }
+
+    .hatch-footer small {
+        color: var(--hatch-medium-gray);
+        font-size: 0.85rem;
+    }
+
+    .hatch-footer-logo {
+        max-height: 25px;
+        width: auto;
+        object-fit: contain;
+    }
+</style>
+<footer class="hatch-footer">
+    <small>&copy; 2025 Hatch Advisory. All Rights Reserved.</small>
+    <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Advisory Logo" class="hatch-footer-logo">
+</footer>
+
+
+<style>
+    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
+    :root {
+        /* Hatch Brand Colors */
+        --hatch-orange: #E84B37;
+        --hatch-orange-alt: #E75300;
+        --hatch-medium-gray: #595959;
+        --hatch-light-gray: #A0AEC0;
+        --hatch-white: #FFFFFF;
+
+        /* Sizing & Spacing */
+        --footer-height: 40px; /* Assuming footer is 40px */
+        --card-border-radius: 8px;
+
+        /* Spacing Scale */
+        --spacing-sm: 0.5rem;   /* 8px */
+        --spacing-md: 1rem;     /* 16px */
+        --spacing-lg: 1.5rem;   /* 24px */
+    }
+
+    /* ===== NAVIGATION CONTROLS - Hatch Button Standards ===== */
+    .hatch-nav-controls {
+        position: fixed;
+        /* Position it above the footer, accounting for footer height and desired gap */
+        bottom: calc(var(--footer-height) + var(--spacing-lg)); 
+        right: var(--spacing-lg);
+        z-index: 1000;
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .hatch-nav-button {
+        background: var(--hatch-orange-alt);
+        color: var(--hatch-white);
+        border: none;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--card-border-radius);
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 8px rgba(231, 83, 0, 0.3);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .hatch-nav-button:hover {
+        background: var(--hatch-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(231, 83, 0, 0.4);
+    }
+
+    .hatch-nav-button:disabled {
+        background: var(--hatch-light-gray);
+        color: var(--hatch-medium-gray);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+</style>
+<div id="nav-controls" class="hatch-nav-controls">
+    <button id="prev-slide" class="hatch-nav-button">Previous</button>
+    <button id="next-slide" class="hatch-nav-button">Next</button>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- The app.js script is no longer needed in this static build process -->
+
+</body>
+</html>

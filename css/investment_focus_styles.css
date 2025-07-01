@@ -1,0 +1,414 @@
+/* Investment Focus Slide Specific Styles */
+/* Updated to match corporate_styles.css colors and single-page layout */
+
+:root {
+    --hatch-orange: #E84B37;        /* Corporate header orange */
+    --hatch-orange-alt: #E75300;    /* Corporate main orange */
+    --hatch-gray: #425563;          /* Corporate dark grey */
+    --hatch-medium-gray: #595959;   /* Corporate medium grey */
+    --hatch-background: #f4f4f4;    /* Corporate background */
+    --hatch-white: #FFFFFF;         /* Corporate white */
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+}
+
+/* Investment Focus Container - Single Page Layout */
+.investment-focus-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center to align content to the top */
+    padding: 2rem;
+    background-color: #f8f9fa;
+    height: 100vh;
+}
+
+.investment-focus-content {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Header Section - Compact */
+.investment-focus-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0; /* Add some vertical padding */
+    border-bottom: 2px solid var(--hatch-orange-alt); /* Add a bottom border */
+    width: 100%;
+    max-width: 900px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.investment-focus-main-title {
+    font-size: 3rem; /* Larger main title */
+    font-weight: 700; /* Bolder */
+    color: var(--hatch-gray);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase; /* Uppercase for impact */
+    letter-spacing: 1.5px; /* Add some letter spacing */
+}
+
+.investment-focus-subtitle {
+    font-size: 1.25rem; /* Slightly larger subtitle */
+    font-weight: 300; /* Lighter font weight */
+    color: var(--hatch-medium-gray);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-style: italic; /* Italicize for emphasis */
+}
+
+/* Card Styles */
+.investment-focus-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-top: none; /* Remove top border, will use image */
+    overflow: hidden; /* Ensures image corners are rounded */
+}
+
+.investment-focus-card-image {
+    width: 100%;
+    height: 150px; /* Reduced height for better text fit */
+    object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+}
+
+.investment-focus-card-title {
+    font-size: 1.2rem;
+    font-weight: 600; /* Bolder text */
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+    background-color: #fff8f7; /* Light orange background for all */
+    color: var(--hatch-orange-alt); /* Corporate orange text for all */
+    border-top: 1px solid #ffe5e0; /* Subtle top border */
+    text-transform: uppercase; /* Uppercase card titles */
+}
+
+.cost-efficiency .investment-focus-card-title,
+.productivity .investment-focus-card-title,
+.recovery .investment-focus-card-title {
+    background-color: #fff8f7;
+    color: var(--hatch-orange-alt);
+}
+
+.investment-focus-card-quote {
+    padding: var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--hatch-gray);
+    border-bottom: 1px solid #e9ecef;
+    flex-grow: 1; /* Allows quote to fill space */
+}
+
+.investment-focus-card-quote:last-child {
+    border-bottom: none;
+}
+
+.quote-author {
+    font-style: italic;
+    text-align: right;
+    margin-top: 1rem;
+    color: #6c757d;
+}
+
+/* Executive Quote Styling */
+.executive-quote {
+    background: rgba(231, 83, 0, 0.05);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border-left: 4px solid var(--hatch-orange-alt);
+    margin-bottom: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.executive-quote blockquote {
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--hatch-gray);
+    quotes: """ """ "'" "'";
+}
+
+.executive-quote blockquote::before {
+    content: open-quote;
+    font-size: 1.2em;
+    color: var(--hatch-orange-alt);
+}
+
+.executive-quote blockquote::after {
+    content: close-quote;
+    font-size: 1.2em;
+    color: var(--hatch-orange-alt);
+}
+
+.executive-quote cite {
+    font-size: 0.8rem;
+    color: var(--hatch-medium-gray);
+    font-style: normal;
+    text-align: right;
+    display: block;
+}
+
+.executive-quote cite strong {
+    color: var(--hatch-gray);
+    font-weight: 600;
+}
+
+/* Key Points List */
+.pillar-key-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.pillar-key-points li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--hatch-gray);
+    margin-bottom: var(--spacing-sm);
+    padding-left: 20px;
+    position: relative;
+}
+
+.pillar-key-points li::before {
+    content: "●";
+    color: var(--hatch-orange-alt);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* News Panel Styles */
+.investment-news-panel {
+    background: var(--hatch-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.investment-news-panel.active {
+    height: 200px;                  /* Fixed news panel height */
+    opacity: 1;
+    overflow-y: auto;
+}
+
+.investment-news-panel h6 {
+    color: var(--hatch-gray);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.investment-news-panel h6 i {
+    color: var(--hatch-orange-alt);
+    margin-right: var(--spacing-sm);
+}
+
+/* News Feed Styles */
+.news-feed {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.news-loading {
+    text-align: center;
+    color: var(--hatch-medium-gray);
+    padding: var(--spacing-lg);
+}
+
+.news-item {
+    border-bottom: 1px solid #f0f0f0;
+    padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-time {
+    font-size: 0.75rem;
+    color: var(--hatch-medium-gray);
+    font-weight: 500;
+}
+
+.news-item p {
+    font-size: 0.85rem;
+    color: var(--hatch-gray);
+    margin: 5px 0 0 0;
+    line-height: 1.3;
+}
+
+/* Market Data Styles */
+.market-data {
+    background: rgba(66, 85, 99, 0.05);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.market-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(66, 85, 99, 0.1);
+}
+
+.market-indicator:last-child {
+    border-bottom: none;
+}
+
+.indicator-label {
+    font-size: 0.85rem;
+    color: var(--hatch-gray);
+    font-weight: 500;
+}
+
+.indicator-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--hatch-gray);
+}
+
+.trend-up {
+    color: #28a745;
+    font-size: 0.8rem;
+}
+
+.trend-down {
+    color: #dc3545;
+    font-size: 0.8rem;
+}
+
+/* News Toggle Button in Header */
+#toggle-news-btn {
+    border-color: var(--hatch-orange-alt);
+    color: var(--hatch-orange-alt);
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    transition: all 0.3s ease;
+}
+
+#toggle-news-btn:hover {
+    background-color: var(--hatch-orange-alt);
+    border-color: var(--hatch-orange-alt);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .investment-pillars {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .investment-pillar-card {
+        max-height: none;
+    }
+    
+    .investment-focus-content {
+        padding: var(--spacing-md);
+    }
+    
+    .investment-focus-main-title {
+        font-size: 2rem !important;
+    }
+    
+    .investment-news-panel.active {
+        height: auto;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .investment-focus-header {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .investment-focus-main-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .investment-focus-subtitle {
+        font-size: 1rem;
+    }
+    
+    .pillar-image-container {
+        height: 120px;
+    }
+    
+    .pillar-title {
+        font-size: 1.1rem;
+    }
+    
+    .investment-news-panel .row {
+        flex-direction: column;
+    }
+    
+    .investment-news-panel .col-8,
+    .investment-news-panel .col-4 {
+        width: 100%;
+        padding: 0;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .investment-news-panel {
+        display: none;
+    }
+    
+    #toggle-news-btn {
+        display: none;
+    }
+    
+    .investment-pillars {
+        height: auto;
+    }
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spinner.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Smooth Scrollbar for News Feed */
+.news-feed::-webkit-scrollbar {
+    width: 6px;
+}
+
+.news-feed::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.news-feed::-webkit-scrollbar-thumb {
+    background: var(--hatch-orange-alt);
+    border-radius: 3px;
+}
+
+.news-feed::-webkit-scrollbar-thumb:hover {
+    background: var(--hatch-orange);
+}

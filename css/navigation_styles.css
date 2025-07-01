@@ -1,0 +1,223 @@
+/* Styles for individual slides within the container */
+#presentation-container .slide {
+    width: 100%;
+    display: none; /* Hidden by default */
+    background-color: #ffffff;
+    padding: 20px;
+    overflow-y: auto;
+    min-height: calc(100vh - 120px); /* Viewport height minus header & footer */
+}
+
+#presentation-container .slide.active-slide {
+    display: block !important; /* Show active slide */
+}
+
+/* First slide shown by default */
+#presentation-container .slide:first-child {
+    display: block;
+}
+
+/* Specific styling for the cover slide if needed */
+#presentation-container #cover-slide {
+    /* Example: Full viewport background image, no padding if image is the content */
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Manifesto and story popup styling for the cover slide */
+#cover-slide .manifesto-container {
+    position: relative; /* For positioning highlight and story */
+    display: inline-block; /* Or adjust as needed for layout */
+    /* Add max-width or other sizing as appropriate for the image */
+}
+
+#cover-slide #manifesto-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    /* Add specific dimensions or aspect ratio control if needed */
+}
+
+#cover-slide #highlighted-value-area {
+    position: absolute;
+    /* These values are placeholders - adjust based on your manifesto image */
+    top: 20%; 
+    left: 30%;
+    width: 40%;
+    height: 15%;
+    border: 2px dashed rgba(255, 255, 255, 0.7); /* Example highlight */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight overlay */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cover-slide #highlighted-value-area:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#cover-slide #core-value-story-popup {
+    display: none; /* Initially hidden */
+    position: absolute;
+    /* Position near the highlighted area - adjust as needed */
+    top: 35%; /* Example: below the highlight */
+    left: 25%;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 20; /* Above other cover slide elements */
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Navigation controls styles */
+#slide-navigation-controls {
+    position: fixed;
+    /* Position it relative to the footer. If footer is 30px high, 
+       and you want 10px gap above footer, bottom should be 30px + 10px = 40px */
+    bottom: 40px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1020; /* Higher than footer to ensure it's clickable and visible above footer */
+    background-color: rgba(0, 0, 0, 0.5); /* Example background */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#slide-navigation-controls button {
+    background-color: #4CAF50; /* Example button color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#slide-navigation-controls button:hover {
+    background-color: #45a049; /* Example hover color */
+}
+
+#slide-navigation-controls button:disabled {
+    background-color: #ccc; /* Example disabled color */
+    cursor: not-allowed;
+}
+
+/* Navigation Controls Styling */
+#nav-controls {
+    padding: 10px 0;
+    background-color: #D6DEE3; /* Hatch Light Grey Blue background for the nav bar */
+    text-align: center; /* Ensure buttons are centered if not already */
+    width: 100%;
+    position: fixed; /* Fixed position */
+    bottom: 45px; /* Position it above the footer. Adjust based on your footer's actual height */
+    left: 0;
+    z-index: 1020; /* Below header/footer (1030) but above general content */
+    border-top: 1px solid #DEDEDE; /* Optional: light border */
+}
+
+.nav-button {
+    background-color: #425563; /* Hatch Dark Grey */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #595959; /* Hatch Medium Grey on hover */
+}
+
+.nav-button:disabled {
+    background-color: #DEDEDE; /* Hatch Light Grey for disabled */
+    color: #595959;
+    cursor: not-allowed;
+}
+
+/*
+
+**Key CSS features here:**
+
+1.  **Slide Styling (`#slide-container .slide`):**
+    *   `opacity: 0; visibility: hidden;`: Makes slides invisible by default.
+    *   `transition`: Sets up a 0.5-second fade effect for `opacity`. Visibility is changed after the opacity transition to prevent interaction with hidden elements.
+    *   `position: absolute;`: This stacks all slides on top of each other in the same spot within the `#slide-container`.
+    *   `overflow-y: auto; max-height: ...;`: Allows individual slides to scroll if their content is too long, while respecting the fixed header/footer/nav.
+2.  **Active Slide Styling (`#slide-container .slide.active-slide`):**
+    *   `opacity: 1; visibility: visible;`: Makes the active slide visible with a fade-in.
+    *   `z-index: 10;`: Ensures the active slide is on top of other (hidden) slides.
+3.  **Cover Slide Specifics:**
+    *   Placeholders for manifesto image, highlighted area, and the story popup.
+    *   The `#highlighted-value-area` is positioned absolutely over the (yet to be defined) manifesto image. You'll need to adjust `top`, `left`, `width`, `height` based on your actual manifesto image and the value you want to highlight.
+    *   The `#core-value-story-popup` is initially hidden. We'll use JavaScript to show/hide this on hover/click for better control.
+
+**Important:**
+The JavaScript in `main_navigation.js` was setting `slide.style.display`. We should remove those lines from the JS and let the CSS classes (`.active-slide`) handle visibility entirely for the transitions to work correctly.
+
+Let's modify `templates/js/main_navigation.js` to rely purely on CSS classes for visibility.
+
+**Modified `templates/js/main_navigation.js`:**
+````javascript
+// filepath: c:\Users\USER\OneDrive - Hatch Ltd\MikaelChallenge\company-deck-generator\templates\js\main_navigation.js
+document.addEventListener('DOMContentLoaded', () => {
+    const slideContainer = document.getElementById('slide-container');
+    // Query for slides dynamically as they might be added by Python
+    let slides = []; 
+    const nextButton = document.getElementById('next-slide-btn');
+    const prevButton = document.getElementById('prev-slide-btn');
+    const slideIndicator = document.getElementById('slide-indicator');
+
+    let currentSlideIndex = 0;
+    let totalSlides = 0;
+
+    function initializeSlides() {
+        slides = slideContainer.querySelectorAll('.slide');
+        totalSlides = slides.length;
+        
+        if (totalSlides > 0) {
+            // Ensure only the first slide has active-slide initially if multiple are set by mistake
+            slides.forEach((s, i) => {
+                if (i === 0) {
+                    s.classList.add('active-slide');
+                } else {
+                    s.classList.remove('active-slide');
+                }
+            });
+            showSlide(0); // Show the first slide
+        } else {
+            console.warn("No slides found in the container during initialization.");
+            if(slideIndicator) slideIndicator.textContent = "0 / 0";
+            if(nextButton) nextButton.disabled = true;
+            if(prevButton) prevButton.disabled = true;
+        }
+    }
+
+
+    function showSlide(index) {
+        if (totalSlides === 0) return;
+
+        if (index >= totalSlides) index = totalSlides - 1;
+        if (index < 0) index = 0;
+
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active-slide');
+            } else {
+                slide.classList.remove('active-slide');
+
+`````

@@ -1,0 +1,440 @@
+/* Areas of Opportunity Slide Styles */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    /* Hatch Color Palette - Professional Soft Gray Gradient */
+    --hatch-orange: #E84B37;
+    --hatch-orange-alt: #E75300;
+    --hatch-red: #E84B37;
+    
+    /* Professional Gray Gradient - Sober and Clean */
+    --hatch-primary-gray: #425563;        /* Deep professional gray for text */
+    --hatch-medium-gray: #595959;         /* Medium gray for secondary text */
+    --hatch-light-gray: #A0AEC0;          /* Light gray for subtle elements */
+    --hatch-soft-gray: #E8EBF0;           /* Very soft gray for backgrounds */
+    --hatch-lighter-gray: #F5F7FA;        /* Lightest gray for cards/containers */
+    --hatch-background: #FAFBFC;          /* Crisp white-gray background */
+    --hatch-white: #FFFFFF;               /* Pure white for cards, headers */
+    
+    /* Professional Gray Gradients */
+    --gray-gradient-soft: linear-gradient(135deg, #F5F7FA 0%, #E8EBF0 100%);
+    --gray-gradient-subtle: linear-gradient(135deg, #FAFBFC 0%, #F5F7FA 100%);
+    --gray-gradient-header: linear-gradient(135deg, #FFFFFF 0%, #F5F7FA 100%);
+    
+    /* UI State Colors */
+    --success-green: #28a745;
+    --info-blue: #17a2b8;
+    --warning-yellow: #ffc107;
+    --border-gray: #E2E8F0;              /* Softer border color */
+    --shadow-gray: rgba(66, 85, 99, 0.08); /* Softer shadow */
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Typography */
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-xl: 2.5rem;
+    --font-size-lg: 1.8rem;
+    --font-size-md: 1.2rem;
+    --font-size-sm: 1rem;
+    --font-size-xs: 0.875rem;
+    
+    /* Shadows and Effects */
+    --box-shadow-light: 0 2px 10px var(--shadow-gray);
+    --box-shadow-medium: 0 4px 15px rgba(66, 85, 99, 0.1);
+    --box-shadow-heavy: 0 8px 25px rgba(66, 85, 99, 0.12);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    background: var(--gray-gradient-subtle);
+    color: var(--hatch-primary-gray);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== SLIDE LAYOUT ===== */
+.areas-opportunity-slide {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 140px); /* Use min-height to allow content to expand */
+    padding: 10px 15px; /* Reduced padding */
+    background: var(--gray-gradient-subtle);
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow content to fill available space */
+    min-height: 0; /* Prevent overflow in flex children */
+    padding: 1rem 1.5rem;
+}
+
+.opportunity-tabs-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow this container to grow */
+    min-height: 0; /* Prevent flexbox overflow issues */
+}
+
+.tab-content-container {
+    flex-grow: 1;
+    min-height: 0; /* Added to prevent overflow */
+}
+
+.tab-content {
+    overflow-y: auto; /* Add scroll for overflow */
+    padding: var(--spacing-md);
+    background: var(--hatch-white);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-light);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    display: none;
+}
+
+.tab-content.active {
+    display: flex; /* Use flexbox for card layout */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: var(--spacing-md); /* Add space between cards */
+    opacity: 1;
+    height: fit-content; /* Make sure the active tab fills the container */
+    overflow-y: auto; /* Add scroll for overflow */
+}
+
+/* ===== HEADER STYLES ===== */
+header {
+    background: var(--gray-gradient-header);
+    box-shadow: var(--box-shadow-light);
+    z-index: 1000;
+    height: 70px;
+    border-bottom: 2px solid var(--hatch-orange);
+}
+
+header h5 {
+    color: var(--hatch-primary-gray);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    margin: 0;
+}
+
+/* ===== AREAS OF OPPORTUNITY CONTENT ===== */
+.areas-opportunity-content {
+    padding: var(--spacing-lg);
+    background: var(--hatch-white);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-medium);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.slide-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.slide-header h1 {
+    font-size: var(--font-size-xl);
+    color: var(--hatch-primary-gray);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.slide-subtitle {
+    font-size: var(--font-size-md);
+    color: var(--hatch-medium-gray);
+    font-weight: 400;
+}
+
+/* ===== TAB LAYOUT ===== */
+.opportunity-tabs-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow this container to take up all available space */
+    min-height: 0; /* Prevent flexbox overflow issues */
+}
+
+.tab-buttons {
+    display: flex;
+    background-color: var(--hatch-lighter-gray);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: var(--spacing-md);
+}
+
+.tab-button {
+    flex: 1;
+    padding: var(--spacing-sm) 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--hatch-medium-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+.tab-button:hover {
+    background-color: var(--hatch-soft-gray);
+    color: var(--hatch-primary-gray);
+}
+
+.tab-button.active {
+    background-color: var(--hatch-white);
+    color: var(--hatch-orange);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tab-content-container {
+    flex-grow: 1;
+    min-height: 0; /* Added to prevent overflow */
+}
+
+.tab-content {
+    overflow-y: auto; /* Add scroll for overflow */
+    padding: var(--spacing-md);
+    background: var(--hatch-white);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-light);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    display: none;
+}
+
+.tab-content.active {
+    display: flex; /* Use flexbox for card layout */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: var(--spacing-md); /* Add space between cards */
+    opacity: 1;
+    height: 100%; /* Make sure the active tab fills the container */
+    overflow-y: auto; /* Add scroll for overflow */
+}
+
+/* ===== CONTENT STYLING ===== */
+.opportunity-card {
+    background: var(--hatch-white);
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-light);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - var(--spacing-md)); /* Two cards per row, accounting for gap */
+    height: fit-content; /* Allow height to adjust to content */
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.opportunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    color: var(--hatch-orange);
+}
+
+.card-header i {
+    font-size: 1.5rem;
+}
+
+.card-header h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--hatch-primary-gray);
+    margin: 0;
+}
+
+.card-body {
+    flex-grow: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    color: var(--hatch-medium-gray);
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-xs);
+    color: var(--hatch-light-gray);
+    border-top: 1px solid var(--border-gray);
+    padding-top: var(--spacing-sm);
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* ===== COLOR SCHEMES FOR SECTIONS ===== */
+.strategy-section .opportunity-sidebar {
+    background: linear-gradient(135deg, #425563 0%, #595959 100%);
+}
+
+.operational-section .opportunity-sidebar {
+    background: linear-gradient(135deg, #595959 0%, #708090 100%);
+}
+
+.financial-section .opportunity-sidebar {
+    background: linear-gradient(135deg, #708090 0%, #A0AEC0 100%);
+}
+
+.pmo-section .opportunity-sidebar {
+    background: linear-gradient(135deg, var(--hatch-orange) 0%, var(--hatch-orange-alt) 100%);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+    .opportunity-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        gap: var(--spacing-sm);
+    }
+    
+    .opportunity-card {
+        height: fit-content; /* Allow cards to adjust to content */
+    }
+    
+    .opportunity-sidebar {
+        width: 180px;
+    }
+    
+    .sidebar-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .areas-opportunity-slide {
+        padding: 5px 10px 75px 10px;
+    }
+    
+    .areas-opportunity-main-title {
+        font-size: 1.6rem;
+    }
+    
+    .opportunity-card {
+        flex-direction: column;
+        height: auto; /* Allow mobile cards to adjust to content */
+    }
+    
+    .opportunity-sidebar {
+        width: 100%;
+        padding: var(--spacing-sm);
+        min-height: 60px;
+    }
+    
+    .sidebar-title {
+        font-size: 0.9rem;
+    }
+    
+    .opportunity-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .item-title {
+        font-size: 0.9rem;
+    }
+    
+    .item-description {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    header,
+    footer {
+        display: none !important;
+    }
+    
+    .areas-opportunity-slide {
+        height: auto;
+        max-height: none;
+        padding: 0;
+    }
+    
+    .areas-opportunity-content {
+        height: auto;
+    }
+    
+    .opportunity-grid {
+        display: block;
+    }
+    
+    .opportunity-card {
+        page-break-inside: avoid;
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.opportunity-card:focus {
+    outline: 2px solid var(--hatch-orange);
+    outline-offset: 2px;
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --hatch-orange: #FF4500;
+        --hatch-primary-gray: #000000;
+        --hatch-white: #FFFFFF;
+        --hatch-background: #F0F0F0;
+    }
+    
+    .opportunity-card:hover {
+        background: #E0E0E0;
+    }
+}
+
+/* ===== SCROLLBAR STYLES ===== */
+.opportunity-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.opportunity-content::-webkit-scrollbar-track {
+    background: var(--hatch-background);
+    border-radius: 3px;
+}
+
+.opportunity-content::-webkit-scrollbar-thumb {
+    background: var(--hatch-orange);
+    border-radius: 3px;
+}
+
+.opportunity-content::-webkit-scrollbar-thumb:hover {
+    background: var(--hatch-orange-alt);
+}

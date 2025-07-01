@@ -1,0 +1,53 @@
+/* Manifesto Slide Specific Styles */
+.manifesto-container {
+    position: relative;
+    display: inline-block;
+}
+
+#manifesto-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border: 3px solid #ccc;
+    position: relative;
+}
+
+#highlight-box {
+    position: absolute;
+    border: 3px solid var(--hatch-orange);
+    background: rgba(232, 75, 55, 0.3);
+    display: none;
+    cursor: move;
+    min-width: 50px;
+    min-height: 50px;
+    top: 50px;
+    left: 50px;
+    width: 150px;
+    height: 100px;
+    z-index: 10;
+}
+
+#highlight-box .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background: var(--hatch-orange);
+    cursor: se-resize;
+    border-radius: 3px;
+}
+
+.manifesto-controls {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.manifesto-controls .btn {
+    margin-right: 10px;
+}
+
+.manifesto-controls .btn-primary {
+    background: var(--hatch-orange);
+    border: none;
+}

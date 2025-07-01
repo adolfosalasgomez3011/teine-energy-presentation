@@ -1,0 +1,82 @@
+/* Summary Slide Specific Styles */
+
+.summary-main-title {
+    color: var(--hatch-orange);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.summary-subtitle {
+    color: var(--hatch-gray);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.col-md-6 h3 {
+    color: var(--hatch-gray);
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--hatch-gray);
+    padding-bottom: 5px;
+}
+
+.performance-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.metric-card {
+    text-align: center;
+}
+
+.metric-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 10px auto;
+    background: transparent;
+    border: 3px solid var(--hatch-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric-icon span {
+    font-size: 20px;
+    color: var(--hatch-orange);
+    font-weight: bold;
+}
+
+.metric-icon img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(49%) sepia(90%) saturate(2721%) hue-rotate(346deg) brightness(96%) contrast(95%);
+}
+
+.metric-card h6 {
+    color: var(--hatch-gray);
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.metric-card p {
+    color: var(--hatch-gray);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.col-md-6 ul {
+    color: var(--hatch-gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.col-md-6 h5 {
+    color: var(--hatch-gray);
+    font-weight: 600;
+    margin-bottom: 15px;
+}

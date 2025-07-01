@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 Thank You</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/corporate_styles.css">
+    <link rel="stylesheet" href="../css/cover_slide_styles.css">
+    <link rel="stylesheet" href="../css/thank_you_anniversary_styles.css">
+    
+    <style>
+        /* Basic styles to ensure content is visible */
+        body {
+            padding-top: 60px; /* Adjust if header height changes */
+            padding-bottom: 100px; /* Adjust for footer and nav */
+        }
+    </style>
+
+    <style>
+        /* Iframe-specific overrides to hide header/footer */
+        header, .hatch-header {
+            display: none !important;
+        }
+        
+        footer, .hatch-footer {
+            display: none !important;
+        }
+        
+        .hatch-nav-controls {
+            display: none !important;
+        }
+        
+        body {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Ensure thank you slide fills the iframe viewport */
+        .thank-you-slide {
+            height: 100vh !important;
+            min-height: 100vh !important;
+            width: 100vw !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Ensure full viewport usage */
+        html, body {
+            height: 100% !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        main {
+            height: 100vh !important;
+            width: 100vw !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<main class="container-fluid p-0">
+    <div class="thank-you-slide">
+<!-- Anniversary Badge -->
+<div class="anniversary-badge-container">
+<div class="anniversary-badge">
+<div class="number">70</div>
+<div class="text">Years</div>
+</div>
+<!-- History Popup -->
+<div class="hatch-history-popup">
+<h3>Our Legacy of Innovation</h3>
+<p>
+                Founded in 1955 by Gerry Hatch, our company has grown from a small consultancy into a global engineering powerhouse, driven by a passion for tackling the world's toughest challenges.
+                Visit us at <a href="https://www.hatch.com" rel="noopener noreferrer" target="_blank">www.hatch.com</a>.
+            </p>
+</div>
+</div>
+<!-- Main Slide Content -->
+<div class="slide-content">
+<div class="plus-icon">+</div>
+<div class="thank-you-text">Thank You</div>
+<div class="info-text">A special acknowledgement of our 70-year journey of innovation and partnership.</div>
+</div>
+</div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+    .hatch-footer {
+        background: var(--hatch-white);
+        border-top: 1.5px solid var(--hatch-orange);
+        padding: 0 var(--spacing-md); /* Use padding on sides, not top/bottom */
+        z-index: 1050;
+        box-shadow: 0 -4px 15px rgba(232, 75, 55, 0.15);
+        height: var(--footer-height);
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Vertical centering */
+        justify-content: space-between; /* Space out content */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box; /* Ensure padding is included in height */
+    }
+
+    .hatch-footer small {
+        color: var(--hatch-medium-gray);
+        font-size: 0.85rem;
+    }
+
+    .hatch-footer-logo {
+        max-height: 25px;
+        width: auto;
+        object-fit: contain;
+    }
+</style>
+<footer class="hatch-footer">
+    <small>&copy; 2025 Hatch Advisory. All Rights Reserved.</small>
+    <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Advisory Logo" class="hatch-footer-logo">
+</footer>
+
+
+<style>
+    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
+    :root {
+        /* Hatch Brand Colors */
+        --hatch-orange: #E84B37;
+        --hatch-orange-alt: #E75300;
+        --hatch-medium-gray: #595959;
+        --hatch-light-gray: #A0AEC0;
+        --hatch-white: #FFFFFF;
+
+        /* Sizing & Spacing */
+        --footer-height: 40px; /* Assuming footer is 40px */
+        --card-border-radius: 8px;
+
+        /* Spacing Scale */
+        --spacing-sm: 0.5rem;   /* 8px */
+        --spacing-md: 1rem;     /* 16px */
+        --spacing-lg: 1.5rem;   /* 24px */
+    }
+
+    /* ===== NAVIGATION CONTROLS - Hatch Button Standards ===== */
+    .hatch-nav-controls {
+        position: fixed;
+        /* Position it above the footer, accounting for footer height and desired gap */
+        bottom: calc(var(--footer-height) + var(--spacing-lg)); 
+        right: var(--spacing-lg);
+        z-index: 1000;
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .hatch-nav-button {
+        background: var(--hatch-orange-alt);
+        color: var(--hatch-white);
+        border: none;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--card-border-radius);
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 8px rgba(231, 83, 0, 0.3);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .hatch-nav-button:hover {
+        background: var(--hatch-orange);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(231, 83, 0, 0.4);
+    }
+
+    .hatch-nav-button:disabled {
+        background: var(--hatch-light-gray);
+        color: var(--hatch-medium-gray);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+</style>
+<div id="nav-controls" class="hatch-nav-controls">
+    <button id="prev-slide" class="hatch-nav-button">Previous</button>
+    <button id="next-slide" class="hatch-nav-button">Next</button>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- The app.js script is no longer needed in this static build process -->
+
+</body>
+</html>

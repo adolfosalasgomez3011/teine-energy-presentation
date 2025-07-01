@@ -1,0 +1,333 @@
+/* Strategic Focus Slide Specific Styles */
+/* Updated to match corporate_styles.css colors */
+
+:root {
+    --hatch-orange: #E84B37;        /* Corporate header orange */
+    --hatch-orange-alt: #E75300;    /* Corporate main orange */
+    --hatch-gray: #425563;          /* Corporate dark grey */
+    --hatch-medium-gray: #595959;   /* Corporate medium grey */
+    --hatch-background: #f4f4f4;    /* Corporate background */
+    --hatch-white: #FFFFFF;         /* Corporate white */
+}
+
+/* Strategic Focus Container - Fits in viewport constraints */
+.strategic-focus-slide {
+    background: var(--hatch-background);
+    height: calc(100vh - 120px);    /* Matches corporate layout constraints */
+    padding: 0;
+    position: relative;
+    overflow: hidden;               /* Prevents content overflow */
+}
+
+.strategic-focus-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    min-height: calc(100vh - 120px);
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+/* Strategic Focus Header - Compact for single page */
+.strategic-focus-header {
+    background: linear-gradient(135deg, #E84B37 0%, #E75300 100%);
+    color: white;
+    padding: 15px 40px;             /* Reduced padding */
+    text-align: center;
+    margin-bottom: 20px;            /* Reduced margin */
+    border-radius: 0;               /* No border radius for full width */
+}
+
+.strategic-focus-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.strategic-focus-main-title {
+    color: white !important;           /* Force white color */
+    font-size: 2.5rem !important;     /* Force size */
+    font-weight: 700 !important;      /* Force weight */
+    margin: 0 !important;             /* Force no margin */
+    padding: 0 !important;            /* Force no padding */
+    font-family: 'Playfair Display', serif !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    display: block !important;         /* Force display */
+    visibility: visible !important;    /* Force visibility */
+}
+
+/* Strategic Focus Content - Constrained height */
+.strategic-focus-content {
+    padding: 20px 40px;
+    height: calc(100vh - 120px); /* Account for header/footer like org slide */
+    overflow-y: auto;
+    background: #f4f4f4;
+}
+
+/* Strategic Grid - Single page layout */
+.strategic-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Force 3 columns for single page */
+    gap: 20px;                              /* Reduced gap */
+    max-width: 100%;
+}
+
+/* Strategic Cards - Compact for single page */
+.strategic-focus-card {
+    background: white;
+    border-radius: 12px;            /* Slightly smaller radius */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: auto;
+}
+
+.strategic-focus-card:hover {
+    transform: translateY(-5px);    /* Reduced hover effect */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: #E75300;
+}
+
+.strategic-focus-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--hatch-orange) 0%, var(--hatch-orange-alt) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.strategic-focus-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Card Images - Smaller for space */
+.strategic-card-image {
+    width: 100%;
+    height: 120px;                  /* Reduced from 240px */
+    object-fit: cover;
+    border-bottom: 3px solid #E75300;
+    transition: transform 0.3s ease;
+}
+
+.strategic-focus-card:hover .strategic-card-image {
+    transform: scale(1.05);
+}
+
+/* Card Content - Compact */
+.strategic-card-content {
+    padding: 15px;                  /* Reduced padding */
+}
+
+.strategic-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #E75300;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.strategic-card-icon {
+    font-size: 1.3rem;
+}
+
+/* Bullet Points - Compact */
+.strategic-bullet-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.strategic-bullet-points li {
+    padding: 3px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.3;
+    color: #333;
+    font-size: 0.8rem;
+}
+
+.strategic-bullet-points li::before {
+    content: "▶";
+    color: #E75300;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 0.7rem;
+}
+
+/* Live Data Widget - Compact */
+.strategic-live-widget {
+    margin-top: 10px;
+    padding: 10px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border-left: 3px solid #E75300;
+}
+
+.strategic-widget-title {
+    font-weight: 600;
+    color: #E75300;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.strategic-chart-container {
+    position: relative;
+    height: 80px;
+    margin-top: 5px;
+}
+
+/* Loading Indicator */
+.strategic-loading-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #f3f3f3;
+    border-top: 1px solid #E75300;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Chart Container - Compact */
+.strategic-chart-container {
+    position: relative;
+    height: 100px;                  /* Reduced from 200px */
+    margin-top: 8px;
+    background: white;
+    border-radius: 6px;
+    padding: 5px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Card Hover Effects */
+.strategic-focus-card .strategic-card-content {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.strategic-focus-card:hover .strategic-card-content {
+    transform: translateY(-2px);
+}
+
+/* Footer Integration */
+.strategic-focus-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.strategic-hatch-logo {
+    font-weight: 700;
+    color: var(--hatch-orange);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.strategic-page-number {
+    background: var(--hatch-orange);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+/* Responsive - Stack on mobile */
+@media (max-width: 1200px) {
+    .strategic-focus-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .strategic-focus-content {
+        height: auto;
+        max-height: calc(100vh - 180px);
+    }
+}
+
+@media (max-width: 768px) {
+    .strategic-focus-main-title {
+        font-size: 2rem;
+    }
+    
+    .strategic-focus-content {
+        padding: 15px 20px;
+    }
+    
+    .strategic-card-content {
+        padding: 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .strategic-focus-slide {
+        background: white;
+        box-shadow: none;
+    }
+    
+    .strategic-focus-card {
+        break-inside: avoid;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .strategic-live-widget {
+        display: none;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .strategic-focus-card {
+        border: 2px solid #000;
+    }
+    
+    .strategic-bullet-points li::before {
+        color: #000;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .strategic-focus-card {
+        transition: none;
+    }
+    
+    .strategic-loading-indicator {
+        animation: none;
+    }
+    
+    .strategic-live-indicator {
+        animation: none;
+    }
+}

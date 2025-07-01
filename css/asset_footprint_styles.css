@@ -1,0 +1,121 @@
+/* CSS for Asset Footprint Slide */
+
+/* Asset Footprint slide header - 20px left margin */
+.slide-header {
+    margin-left: 20px !important;
+}
+
+#asset-footprint-slide .col-md-8 {
+    padding: 0;
+}
+
+#map-container {
+    width: 100%;
+    height: 600px; /* Changed from 100vh to a fixed height */
+    background-color: #f0f0f0; /* Placeholder background */
+}
+
+#asset-map-leaflet {
+    height: 500px; /* Ensure the map container has a defined height */
+    width: calc(100% - 40px);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f0f2f5;
+}
+
+/* Styling for the summary section */
+.asset-summary h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.asset-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-item .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    color: #0056b3;
+}
+
+.stat-item .stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.asset-card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid transparent;
+    text-align: center;
+    /* margin-bottom: 1rem; */ /* REMOVED: This was forcing vertical stacking */
+}
+
+.asset-card:first-of-type { /* Target only the stats card */
+    margin-bottom: 1rem; 
+}
+
+.asset-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.asset-card .asset-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.asset-card .asset-details div {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Color-coding the cards to match map markers */
+.asset-card.viking {
+    border-top-color: #E84B37;
+}
+.asset-card.bakken {
+    border-top-color: #28a745;
+}
+.asset-card.duvernay {
+    border-top-color: #17a2b8;
+}
+.asset-card.chauvin {
+    border-top-color: #ffc107;
+}
+
+.map-container {
+    position: relative; /* Needed for overlay positioning */
+}
+
+.map-overlay-message {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 401; /* Above map tiles, below controls */
+    pointer-events: none; /* Allow clicks to pass through to the map */
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}

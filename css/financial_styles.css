@@ -1,0 +1,239 @@
+/* Financial Slide Styles - Slide #6 */
+
+/* Financial Slide - Two Column Layout (WORKING VERSION) */
+#financials-slide {
+    height: 100vh;
+    overflow-y: auto;  /* Change from hidden to auto */
+    padding: 15px 0;
+}
+
+#financials-slide .container-fluid {
+    height: auto;  /* Change from 100% to auto */
+    min-height: 100vh;  /* Ensure minimum height */
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+/* Compact Header */
+.financial-main-title {
+    color: #E75300;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.financial-subtitle {
+    color: #495057;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Two Column Layout - Adjusted for equal-ish widths */
+.financial-two-column {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 30px;
+    flex: 0 1 auto;  /* Don't stretch to full height */
+    min-height: 0;
+    margin-bottom: 15px;
+    padding: 0 40px;
+}
+
+/* LEFT COLUMN - Company Metrics with minimal vertical spacing */
+.metrics-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;  /* Add horizontal padding, reduce vertical space */
+}
+
+.metrics-column h3 {
+    color: #E75300;
+    font-size: 1.2rem;
+    margin-bottom: 8px;  /* Reduced from 10px */
+    border-bottom: 2px solid #E75300;
+    padding-bottom: 3px;
+}
+
+.teine-metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px 8px;  /* row-gap column-gap */
+    flex: 0;
+    padding: 10px;
+    align-items: start;
+}
+
+.teine-metric-card {
+    background: #ffffff;
+    padding: 12px 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(231, 83, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85px;  /* Fixed height instead of min/max */
+    box-sizing: content-box;  /* ADD THIS LINE */
+}
+
+.teine-metric-card .metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--hatch-orange);
+    margin-bottom: 4px;
+}
+
+.teine-metric-card .metric-label {
+    font-size: 0.9rem;
+    color: var(--hatch-gray);
+}
+
+/* RIGHT COLUMN - Live Market Data */
+.live-data-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.live-data-column h3 {
+    color: #E75300;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #E75300;
+    padding-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live-data-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.live-data-controls button {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+}
+
+.live-data-controls span {
+    font-size: 0.7rem;
+}
+
+/* Market Data Sections */
+.stocks-section, .indices-section {
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.detailed-stock-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-symbol {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.stock-company {
+    font-size: 0.7rem;
+    color: #666;
+    margin-top: 1px;
+}
+
+.stock-price-info {
+    text-align: right;
+}
+
+.stock-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.stock-change {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    justify-content: flex-end;
+    margin-top: 2px;
+}
+
+.trend-up { color: #22c55e; }
+.trend-down { color: #ef4444; }
+.trend-neutral { color: #6b7280; }
+
+.trend-icon {
+    font-size: 0.9rem;
+}
+
+/* Key Points at Bottom */
+.financial-key-points {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    flex-shrink: 0;
+    margin: 15px 70px 20px 70px;  /* top right bottom left */
+}
+
+.key-points-title {
+    color: #E75300;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.financial-key-point {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.key-point-bullet {
+    color: #E75300;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.key-point-text {
+    flex: 1;
+}
+
+/* Responsive grid for market data */
+.live-data-container {
+    flex: 1;
+    overflow: visible;
+}
