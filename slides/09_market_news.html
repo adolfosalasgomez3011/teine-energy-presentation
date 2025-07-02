@@ -1,339 +1,147 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>09 Market News</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/corporate_styles.css">
-    <link rel="stylesheet" href="../css/cover_slide_styles.css">
+    <title>Market News - Teine Energy</title>
     <link rel="stylesheet" href="../css/market_news_styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Basic styles to ensure content is visible */
-        body {
-            padding-top: 60px; /* Adjust if header height changes */
-            padding-bottom: 100px; /* Adjust for footer and nav */
-        }
-    </style>
-
-    <style>
-        /* Iframe-specific overrides to hide header/footer */
-        header, .hatch-header {
-            display: none !important;
-        }
-        
-        footer, .hatch-footer {
-            display: none !important;
-        }
-        
-        .hatch-nav-controls {
-            display: none !important;
-        }
-        
-        body {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            margin: 0 !important;
-            overflow-x: hidden !important;
-        }
-        
-        .presentation-slide,
-        .slide,
-        .slide-content {
-            height: 100vh !important;
-            min-height: 100vh !important;
-        }
-        
-        /* Ensure full viewport usage */
-        html, body {
-            height: 100% !important;
-            width: 100% !important;
-        }
-    </style>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="slide-container">
+        <!-- Header Section -->
+        <header class="slide-header">
+            <div class="header-content">
+                <h1>
+                    <i class="fas fa-newspaper"></i>
+                    Market News & Insights
+                </h1>
+                <p>Stay informed with the latest energy market developments</p>
+            </div>
+        </header>
 
-<style>
-    /* Header Styling */
-    .hatch-header.fixed-top {
-        background: white !important;
-        border-bottom: 1.5px solid #E84B37 !important;
-        padding: 0 1rem !important; /* Adjusted padding */
-        z-index: 1050 !important;
-        box-shadow: 0 4px 15px rgba(232, 75, 55, 0.15) !important;
-        height: 3%;
-    }
+        <!-- Main Content -->
+        <main class="slide-content">
+            <!-- News Categories -->
+            <section class="news-categories">
+                <div class="category-tabs">
+                    <button class="tab-button active" data-category="energy">
+                        <i class="fas fa-bolt"></i>
+                        Energy Markets
+                    </button>
+                    <button class="tab-button" data-category="oil">
+                        <i class="fas fa-oil-can"></i>
+                        Oil & Gas
+                    </button>
+                    <button class="tab-button" data-category="renewable">
+                        <i class="fas fa-leaf"></i>
+                        Renewables
+                    </button>
+                </div>
+            </section>
 
-    .hatch-header .row {
-        height: 100%;
-        position: relative;
-    }
+            <!-- News Section -->
+            <section class="news-section">
+                <!-- News Card 1 -->
+                <article class="news-card">
+                    <div class="news-icon energy">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Energy Markets</span>
+                            <span class="news-date">2 hours ago</span>
+                        </div>
+                        <h3 class="news-title">Global Energy Prices Show Strong Recovery Signals</h3>
+                        <p class="news-excerpt">Energy markets demonstrate resilience with significant price improvements across multiple sectors, indicating positive market sentiment and investor confidence.</p>
+                    </div>
+                </article>
 
-    #header-title {
-        color: #E84B37 !important;
-        font-weight: bold !important;
-        font-size: 1.25rem !important;
-        margin: 0 !important;
-        font-family: 'Playfair Display', serif !important;
-        letter-spacing: 0.5px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
+                <!-- News Card 2 -->
+                <article class="news-card">
+                    <div class="news-icon oil">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Oil & Gas</span>
+                            <span class="news-date">4 hours ago</span>
+                        </div>
+                        <h3 class="news-title">Major Oil Discovery Announced in North Sea</h3>
+                        <p class="news-excerpt">Significant new oil reserves discovered, estimated to contain over 100 million barrels, boosting regional energy security and market outlook.</p>
+                    </div>
+                </article>
 
-    #header-logo {
-        max-height: 35px !important;
-        width: auto !important;
-        object-fit: contain !important;
-        filter: none !important;
-    }
-</style>
-<header class="container-fluid fixed-top hatch-header">
-    <div class="row align-items-center">
-        <div class="col-4 text-start ps-3">
-            <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Logo" id="header-logo">
-        </div>
-        <div class="col-4 text-center">
-            <h5 id="header-title">HATCH ADVISORY</h5>
-        </div>
-        <div class="col-4 text-end pe-3">
-            <!-- Optional right-aligned header content -->
-        </div>
+                <!-- News Card 3 -->
+                <article class="news-card">
+                    <div class="news-icon renewable">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">Renewables</span>
+                            <span class="news-date">6 hours ago</span>
+                        </div>
+                        <h3 class="news-title">Solar Energy Costs Drop to Record Lows</h3>
+                        <p class="news-excerpt">New solar technology achievements drive down costs by 30%, making renewable energy more competitive than ever before in global markets.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Market Insights Panel -->
+            <aside class="market-insights">
+                <div class="insights-header">
+                    <h3><i class="fas fa-chart-bar"></i> Market Insights</h3>
+                </div>
+                <div class="insights-content">
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h4>Energy Index</h4>
+                            <span class="insight-value positive">+3.2%</span>
+                            <span class="insight-period">Today</span>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h4>Oil Prices</h4>
+                            <span class="insight-value negative">-1.8%</span>
+                            <span class="insight-period">This week</span>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="insight-info">
+                            <h4>Green Energy</h4>
+                            <span class="insight-value positive">+5.7%</span>
+                            <span class="insight-period">This month</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer class="slide-footer">
+            <div class="footer-content">
+                <p class="footer-text">Stay connected with real-time market updates</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Market Analysis</a>
+                    <a href="#" class="footer-link">Industry Reports</a>
+                    <a href="#" class="footer-link">Contact Team</a>
+                </div>
+            </div>
+        </footer>
     </div>
-</header>
 
-
-<main class="container-fluid p-0">
-    <div class="slide market-news-slide" id="market-news-slide">
-<div class="market-news-header">
-<h1>Market News &amp; Overview</h1>
-<div class="news-controls">
-<button class="btn btn-primary" id="update-news-btn"><i class="fas fa-sync-alt"></i> Update News</button>
-<p class="last-updated">Last updated: <span id="last-updated-time"></span></p>
-</div>
-</div>
-<div class="market-news-content">
-<div class="news-timeline">
-<!-- News Item 1 -->
-<div class="news-item">
-<div class="news-header">
-<div class="news-topic">Teine Energy looks to sell certain non-core oil and natural gas assets</div>
-<div class="news-date">March 2024</div>
-</div>
-<p class="news-summary">Teine is looking to unload these assets to focus operations on its core areas. These assets 2023 average daily production was 117 barrels of oil equivalent per day, yielding 2.55M net operating income. The net value of this asset is deemed 3.3$M.</p>
-<div class="news-source">
-<button class="source-btn" data-url="https://www.boereport.com/2024/03/19/teine-energy-looks-to-sell-certain-non-core-oil-and-natural-gas-assets/">
-<i class="fas fa-link"></i> BOE Report
-                    </button>
-</div>
-</div>
-<!-- News Item 2 -->
-<div class="news-item">
-<div class="news-header">
-<div class="news-topic">Teine energy drilling activity, in year prior to April 2023</div>
-<div class="news-date">April 2023</div>
-</div>
-<p class="news-summary">Teine Energy has spudded a total of 295 wells in the past year. While the Viking formation remains their primary focus, they've also expanded into other areas. Notably, they spudded 6 wells in the Chauvin South field in March 2023, leveraging rights acquired from Repsol. Additionally, 5 wells in their Duvernay assets hint at more drilling activity ahead. Overall, Teine seems to be diversifying its exploration efforts beyond the Viking play.</p>
-<div class="news-source">
-<button class="source-btn" data-url="https://www.boereport.com/2023/04/28/teine-energy-drilling-activity-in-year-prior-to-april-2023/">
-<i class="fas fa-link"></i> BOE Report
-                    </button>
-</div>
-</div>
-<!-- News Item 3 -->
-<div class="news-item">
-<div class="news-header">
-<div class="news-topic">Teine Energy purchases Alberta oil assets from Repsol, for 304$M</div>
-<div class="news-date">September 2022</div>
-</div>
-<p class="news-summary">Included in the deal is 95,000 net acres of oil and gas producing land, and supporting midstream infrastructure, including a network of about 1,800 kilometers of pipeline. Repsol's production from the field ranged around 6,800 barrels of oil equivalent per day.</p>
-<div class="news-source">
-<button class="source-btn" data-url="https://www.reuters.com/business/energy/repsol-sells-canadian-oil-gas-assets-peyton-teine-energy-2022-09-07/">
-<i class="fas fa-link"></i> Reuters
-                    </button>
-</div>
-</div>
-<!-- News Item 4 -->
-<div class="news-item">
-<div class="news-header">
-<div class="news-topic">Appointment of new COO</div>
-<div class="news-date">November 2017</div>
-</div>
-<p class="news-summary">Teine energy has announced the appointment of Paul Ringrose to the role of Senior Vice-President and Chief Operating Officer. Paul Ringrose has over 20 year of industry experience, where he has held various operational and management positions.</p>
-<div class="news-source">
-<button class="source-btn" data-url="https://www.boereport.com/2017/11/23/teine-energy-ltd-announces-new-coo-and-vice-president-production/">
-<i class="fas fa-link"></i> BOE Report
-                    </button>
-</div>
-</div>
-<!-- News Item 5 -->
-<div class="news-item">
-<div class="news-header">
-<div class="news-topic">Teine Energy purchases all of Penn West Petroleum's Saskatchewan assets, for 975$M</div>
-<div class="news-date">June 2016</div>
-</div>
-<p class="news-summary">This deal became available so Penn West could comply with its debt obligations. Teine acquired a scalable position within one of North America's most economic light oil plays. The acquisition also adds to Teine's extensive infrastructure growing their owned and operating oil treating capacity as well and their water treating and injection capability.</p>
-<div class="news-source">
-<button class="source-btn" data-url="https://calgaryherald.com/business/energy/penn-west-sells-saskatchewan-assets-to-teine-energy-for-975m">
-<i class="fas fa-link"></i> Calgary Herald
-                    </button>
-</div>
-</div>
-</div>
-<div class="market-snapshot">
-<h2>Market Snapshot</h2>
-<div class="market-indicator">
-<div class="indicator-label">WTI Crude</div>
-<div class="indicator-value trend-up">$75.50 <i class="fas fa-arrow-up"></i></div>
-</div>
-<div class="market-indicator">
-<div class="indicator-label">Natural Gas</div>
-<div class="indicator-value trend-down">$2.80 <i class="fas fa-arrow-down"></i></div>
-</div>
-<div class="market-indicator">
-<div class="indicator-label">CAD/USD</div>
-<div class="indicator-value trend-stable">0.73 <i class="fas fa-minus"></i></div>
-</div>
-<div class="market-indicator">
-<div class="indicator-label">Teine Stock</div>
-<div class="indicator-value trend-up">$15.20 <i class="fas fa-arrow-up"></i></div>
-</div>
-</div>
-</div>
-<!-- Modal for displaying fetched content -->
-<div class="modal" id="news-modal">
-<div class="modal-content">
-<span class="close-button">×</span>
-<h2 id="modal-title">Live Article Feed</h2>
-<div id="modal-body">
-<p>Fetching content...</p>
-</div>
-</div>
-</div>
-</div>
-<script src="../js/market_news_script.js"></script>
-
-</main>
-
-<style>
-    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
-    :root {
-        /* Hatch Brand Colors */
-        --hatch-orange: #E84B37;
-        --hatch-medium-gray: #595959;
-        --hatch-white: #FFFFFF;
-        /* Spacing */
-        --footer-height: 40px;
-        --spacing-md: 1rem;
-    }
-
-    /* ===== HATCH CORPORATE FOOTER ===== */
-    .hatch-footer {
-        background: var(--hatch-white);
-        border-top: 1.5px solid var(--hatch-orange);
-        padding: 0 var(--spacing-md); /* Use padding on sides, not top/bottom */
-        z-index: 1050;
-        box-shadow: 0 -4px 15px rgba(232, 75, 55, 0.15);
-        height: var(--footer-height);
-        display: flex; /* Use flexbox for alignment */
-        align-items: center; /* Vertical centering */
-        justify-content: space-between; /* Space out content */
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        box-sizing: border-box; /* Ensure padding is included in height */
-    }
-
-    .hatch-footer small {
-        color: var(--hatch-medium-gray);
-        font-size: 0.85rem;
-    }
-
-    .hatch-footer-logo {
-        max-height: 25px;
-        width: auto;
-        object-fit: contain;
-    }
-</style>
-<footer class="hatch-footer">
-    <small>&copy; 2025 Hatch Advisory. All Rights Reserved.</small>
-    <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" alt="Hatch Advisory Logo" class="hatch-footer-logo">
-</footer>
-
-
-<style>
-    /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
-    :root {
-        /* Hatch Brand Colors */
-        --hatch-orange: #E84B37;
-        --hatch-orange-alt: #E75300;
-        --hatch-medium-gray: #595959;
-        --hatch-light-gray: #A0AEC0;
-        --hatch-white: #FFFFFF;
-
-        /* Sizing & Spacing */
-        --footer-height: 40px; /* Assuming footer is 40px */
-        --card-border-radius: 8px;
-
-        /* Spacing Scale */
-        --spacing-sm: 0.5rem;   /* 8px */
-        --spacing-md: 1rem;     /* 16px */
-        --spacing-lg: 1.5rem;   /* 24px */
-    }
-
-    /* ===== NAVIGATION CONTROLS - Hatch Button Standards ===== */
-    .hatch-nav-controls {
-        position: fixed;
-        /* Position it above the footer, accounting for footer height and desired gap */
-        bottom: calc(var(--footer-height) + var(--spacing-lg)); 
-        right: var(--spacing-lg);
-        z-index: 1000;
-        display: flex;
-        gap: var(--spacing-sm);
-    }
-
-    .hatch-nav-button {
-        background: var(--hatch-orange-alt);
-        color: var(--hatch-white);
-        border: none;
-        padding: var(--spacing-sm) var(--spacing-md);
-        border-radius: var(--card-border-radius);
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: 0.3s ease;
-        box-shadow: 0 2px 8px rgba(231, 83, 0, 0.3);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .hatch-nav-button:hover {
-        background: var(--hatch-orange);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(231, 83, 0, 0.4);
-    }
-
-    .hatch-nav-button:disabled {
-        background: var(--hatch-light-gray);
-        color: var(--hatch-medium-gray);
-        cursor: not-allowed;
-        transform: none;
-        box-shadow: none;
-    }
-</style>
-<div id="nav-controls" class="hatch-nav-controls">
-    <button id="prev-slide" class="hatch-nav-button">Previous</button>
-    <button id="next-slide" class="hatch-nav-button">Next</button>
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/market_news_script.js"></script>
-<!-- The app.js script is no longer needed in this static build process -->
-
+    <script src="../js/market_news_script.js"></script>
 </body>
 </html>
