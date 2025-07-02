@@ -15,131 +15,149 @@
             <div class="header-content">
                 <h1>
                     <i class="fas fa-newspaper"></i>
-                    Market News & Insights
+                    Market News & Updates
                 </h1>
-                <p>Stay informed with the latest energy market developments</p>
+                <p>Latest developments and insights from Teine Energy</p>
             </div>
         </header>
 
         <!-- Main Content -->
         <main class="slide-content">
-            <!-- News Categories -->
-            <section class="news-categories">
-                <div class="category-tabs">
-                    <button class="tab-button active" data-category="energy">
-                        <i class="fas fa-bolt"></i>
-                        Energy Markets
-                    </button>
-                    <button class="tab-button" data-category="oil">
-                        <i class="fas fa-oil-can"></i>
-                        Oil & Gas
-                    </button>
-                    <button class="tab-button" data-category="renewable">
-                        <i class="fas fa-leaf"></i>
-                        Renewables
-                    </button>
-                </div>
+            <!-- News Grid -->
+            <section class="news-grid">
+                <!-- Featured News Card -->
+                <article class="news-card featured">
+                    <div class="news-header">
+                        <span class="news-badge important">Latest</span>
+                        <span class="news-date">March 2024</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Teine Energy Divests Non-Core Assets</h3>
+                        <p class="news-excerpt">
+                            Teine is looking to unload these assets to <strong>focus operations on its core areas</strong>. 
+                            These assets 2023 average daily production was 117 barrels of oil equivalent per day, 
+                            yielding 2.55M net operating income. <strong>The net value of this asset is deemed 3.35M</strong>.
+                        </p>
+                        <div class="news-meta">
+                            <span class="source-tag">BOE Report</span>
+                            <button class="read-more-btn" onclick="openNewsDetail(1)">
+                                <span>Read More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Standard News Cards -->
+                <article class="news-card">
+                    <div class="news-header">
+                        <span class="news-badge drilling">Operations</span>
+                        <span class="news-date">April 2023</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Extensive Drilling Activity Reported</h3>
+                        <p class="news-excerpt">
+                            Teine Energy has spudded a total of <strong>295 wells</strong> in the past year. 
+                            While the <strong>Viking formation</strong> remains their primary focus, they've expanded exploration 
+                            with <strong>6 wells in the Chauvin South field</strong> and <strong>5 wells in their Duvernay assets</strong>.
+                        </p>
+                        <div class="news-meta">
+                            <span class="source-tag">BOE Report</span>
+                            <button class="read-more-btn compact" onclick="openNewsDetail(2)">
+                                <span>Details</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-header">
+                        <span class="news-badge acquisition">M&A</span>
+                        <span class="news-date">September 2022</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">$304M Repsol Asset Acquisition</h3>
+                        <p class="news-excerpt">
+                            Deal includes 95,000 net acres of oil and gas producing land, supporting midstream infrastructure, 
+                            and about 1,800 kilometers of pipeline. Production averaged <strong>6,800 barrels of oil equivalent per day</strong>.
+                        </p>
+                        <div class="news-meta">
+                            <span class="source-tag">Reuters</span>
+                            <button class="read-more-btn compact" onclick="openNewsDetail(3)">
+                                <span>Details</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-header">
+                        <span class="news-badge leadership">Leadership</span>
+                        <span class="news-date">November 2017</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">New COO Appointment</h3>
+                        <p class="news-excerpt">
+                            <strong>Paul Ringrose appointed as Senior Vice-President and Chief Operating Officer</strong>. 
+                            Brings over 20 years of industry experience in various operational and management positions.
+                        </p>
+                        <div class="news-meta">
+                            <span class="source-tag">Business Insider</span>
+                            <button class="read-more-btn compact" onclick="openNewsDetail(4)">
+                                <span>Details</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-header">
+                        <span class="news-badge acquisition">Major M&A</span>
+                        <span class="news-date">June 2016</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">$975M Penn West Asset Purchase</h3>
+                        <p class="news-excerpt">
+                            Acquired all of Penn West Petroleum's Saskatchewan assets, gaining <strong>scalable position within 
+                            North America's most economic light oil plays</strong> and expanding infrastructure capabilities.
+                        </p>
+                        <div class="news-meta">
+                            <span class="source-tag">Calgary Herald</span>
+                            <button class="read-more-btn compact" onclick="openNewsDetail(5)">
+                                <span>Details</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
             </section>
 
-            <!-- Content Grid -->
-            <div class="content-grid">
-                <!-- News Section -->
-                <section class="news-section">
-                    <!-- News Card 1 -->
-                    <article class="news-card energy-news">
-                        <div class="news-icon energy">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-meta">
-                                <span class="news-category">Energy Markets</span>
-                                <span class="news-date">2 hours ago</span>
-                            </div>
-                            <h3 class="news-title">Global Energy Prices Show Strong Recovery Signals</h3>
-                            <p class="news-excerpt">Energy markets demonstrate resilience with significant price improvements across multiple sectors, indicating positive market sentiment and investor confidence.</p>
-                        </div>
-                    </article>
-
-                    <!-- News Card 2 -->
-                    <article class="news-card oil-news">
-                        <div class="news-icon oil">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-meta">
-                                <span class="news-category">Oil & Gas</span>
-                                <span class="news-date">4 hours ago</span>
-                            </div>
-                            <h3 class="news-title">Major Oil Discovery Announced in North Sea</h3>
-                            <p class="news-excerpt">Significant new oil reserves discovered, estimated to contain over 100 million barrels, boosting regional energy security and market outlook.</p>
-                        </div>
-                    </article>
-
-                    <!-- News Card 3 -->
-                    <article class="news-card renewable-news">
-                        <div class="news-icon renewable">
-                            <i class="fas fa-solar-panel"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-meta">
-                                <span class="news-category">Renewables</span>
-                                <span class="news-date">6 hours ago</span>
-                            </div>
-                            <h3 class="news-title">Solar Energy Costs Drop to Record Lows</h3>
-                            <p class="news-excerpt">New solar technology achievements drive down costs by 30%, making renewable energy more competitive than ever before in global markets.</p>
-                        </div>
-                    </article>
-                </section>
-
-                <!-- Market Insights Panel -->
-                <aside class="market-insights">
-                    <div class="insights-header">
-                        <h3><i class="fas fa-chart-bar"></i> Market Insights</h3>
-                    </div>
-                    <div class="insights-content">
-                        <div class="insight-item">
-                            <div class="insight-icon">
-                                <i class="fas fa-arrow-up"></i>
-                            </div>
-                            <div class="insight-info">
-                                <h4>Energy Index</h4>
-                                <span class="insight-value positive">+3.2%</span>
-                                <span class="insight-period">Today</span>
-                            </div>
-                        </div>
-                        <div class="insight-item">
-                            <div class="insight-icon">
-                                <i class="fas fa-oil-can"></i>
-                            </div>
-                            <div class="insight-info">
-                                <h4>Oil Prices</h4>
-                                <span class="insight-value negative">-1.8%</span>
-                                <span class="insight-period">This week</span>
-                            </div>
-                        </div>
-                        <div class="insight-item">
-                            <div class="insight-icon">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <div class="insight-info">
-                                <h4>Green Energy</h4>
-                                <span class="insight-value positive">+5.7%</span>
-                                <span class="insight-period">This month</span>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <button class="action-btn primary" onclick="refreshNews()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh Feed
+                </button>
+                <button class="action-btn secondary" onclick="exportReport()">
+                    <i class="fas fa-download"></i>
+                    Export Report
+                </button>
+                <button class="action-btn secondary" onclick="subscribeAlerts()">
+                    <i class="fas fa-bell"></i>
+                    Subscribe
+                </button>
+            </section>
         </main>
 
         <!-- Footer -->
         <footer class="slide-footer">
             <div class="footer-content">
-                <p class="footer-text">Stay connected with real-time market updates</p>
+                <p class="footer-text">© 2024 Hatch Advisory - Market Intelligence</p>
                 <div class="footer-links">
-                    <a href="#" class="footer-link">Market Analysis</a>
-                    <a href="#" class="footer-link">Industry Reports</a>
-                    <a href="#" class="footer-link">Contact Team</a>
+                    <span class="page-indicator">Page 9</span>
                 </div>
             </div>
         </footer>
