@@ -13,10 +13,40 @@
     <link rel="stylesheet" href="../css/asset_footprint_styles.css">
     
     <style>
-        /* Basic styles to ensure content is visible */
+        /* Basic styles to ensure content is visible and fits one page */
         body {
             padding-top: 60px; /* Adjust if header height changes */
             padding-bottom: 100px; /* Adjust for footer and nav */
+            height: 100vh !important;
+            overflow: hidden !important;
+        }
+        
+        /* Ensure slide content fits within viewport */
+        main.container-fluid {
+            height: calc(100vh - 160px) !important;
+            overflow: hidden !important;
+            padding: 0 !important;
+        }
+        
+        /* Force single page layout */
+        .asset-footprint-container {
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: hidden !important;
+        }
+        
+        /* Optimize asset cards layout for single page */
+        .asset-summary {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: 0 !important;
+        }
+        
+        .cards-container {
+            flex: 1 !important;
+            min-height: 0 !important;
         }
     </style>
 

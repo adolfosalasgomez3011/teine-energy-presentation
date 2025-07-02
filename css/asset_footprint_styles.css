@@ -1,121 +1,303 @@
-/* CSS for Asset Footprint Slide */
+/* CSS for Asset Footprint Slide - Optimized for Single Page View */
 
-/* Asset Footprint slide header - 20px left margin */
+/* Asset Footprint slide header - reduced margin for compactness */
 .slide-header {
     margin-left: 20px !important;
+    margin-bottom: 0.5rem !important; /* Reduced from default */
+    padding-top: 0.5rem !important;
 }
 
-#asset-footprint-slide .col-md-8 {
-    padding: 0;
+/* Optimize slide header sizing */
+.slide-header h1 {
+    font-size: 2rem !important; /* Reduced from default */
+    margin-bottom: 0.25rem !important;
 }
 
+.slide-header h2.slide-subtitle {
+    font-size: 1.1rem !important; /* Reduced from default */
+    margin-bottom: 0.5rem !important;
+}
+
+/* Main container optimization */
+.asset-footprint-container {
+    height: calc(100vh - 120px) !important; /* Account for header and footer */
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 1rem !important;
+}
+
+.asset-footprint-container .row {
+    flex: 1 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+#asset-footprint-slide .col-md-12 {
+    padding: 0.25rem !important;
+}
+
+/* Optimized map container - increased height to show all markers */
 #map-container {
     width: 100%;
-    height: 600px; /* Changed from 100vh to a fixed height */
-    background-color: #f0f0f0; /* Placeholder background */
+    height: 400px !important; /* Increased from 350px to show all markers clearly */
+    background-color: #f0f0f0;
+    margin-bottom: 0.5rem !important;
 }
 
 #asset-map-leaflet {
-    height: 500px; /* Ensure the map container has a defined height */
-    width: calc(100% - 40px);
+    height: 350px !important; /* Reduced to match container */
+    width: calc(100% - 20px) !important; /* Reduced margin */
+    margin: 0 10px !important;
 }
 
-.cards-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #f0f2f5;
+/* Compact asset summary section */
+.asset-summary {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100% - 380px) !important; /* Account for map height */
 }
 
-/* Styling for the summary section */
 .asset-summary h3 {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem !important; /* Reduced from 1.5rem */
     font-weight: 600;
+    font-size: 1.2rem !important; /* Slightly reduced */
 }
 
+/* Compact stats section */
 .asset-stats {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
+    display: flex !important;
+    justify-content: space-around !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+.stat-item {
+    text-align: center !important;
 }
 
 .stat-item .stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    display: block;
-    color: #0056b3;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    display: block !important;
+    color: #0056b3 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.25rem !important;
 }
 
 .stat-item .stat-label {
-    font-size: 0.9rem;
-    color: #6c757d;
+    font-size: 0.85rem !important;
+    color: #6c757d !important;
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
 }
 
+/* Optimized cards container for horizontal layout */
+.cards-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 0.75rem !important;
+    padding: 0.5rem !important;
+    background-color: rgba(248, 249, 250, 0.8) !important;
+    border-radius: 8px !important;
+    flex: 1 !important;
+    align-items: stretch !important;
+}
+
+/* ===== ENHANCED ASSET CARD STYLING FOR PROPER DISPLAY ===== */
+
+/* Base asset card styling - ensuring all cards display properly */
 .asset-card {
     flex: 1;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid transparent;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 0.75rem !important; /* Reduced from 1rem */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease !important;
+    border-top: 4px solid transparent !important;
     text-align: center;
-    /* margin-bottom: 1rem; */ /* REMOVED: This was forcing vertical stacking */
-}
-
-.asset-card:first-of-type { /* Target only the stats card */
-    margin-bottom: 1rem; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    margin: 0.15rem !important; /* Reduced from 0.25rem */
+    min-height: 110px !important; /* Reduced from 120px */
 }
 
 .asset-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15) !important;
 }
 
-.asset-card .asset-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+/* Asset card headers and content */
+.asset-card .asset-name,
+.asset-card h4.asset-name {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.75rem !important;
+    color: #2c3e50 !important;
+    line-height: 1.2 !important;
+}
+
+.asset-card .asset-details {
+    text-align: center !important;
 }
 
 .asset-card .asset-details div {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+    color: #495057 !important;
 }
 
-/* Color-coding the cards to match map markers */
+.asset-card .asset-details div strong {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+}
+
+/* Color-coding the cards to match map markers - ENHANCED */
 .asset-card.viking {
-    border-top-color: #E84B37;
+    border-top-color: #E84B37 !important;
 }
+
+.asset-card.viking .asset-name,
+.asset-card.viking h4.asset-name {
+    color: #E84B37 !important;
+}
+
 .asset-card.bakken {
-    border-top-color: #28a745;
+    border-top-color: #28a745 !important;
 }
+
+.asset-card.bakken .asset-name,
+.asset-card.bakken h4.asset-name {
+    color: #28a745 !important;
+}
+
 .asset-card.duvernay {
-    border-top-color: #17a2b8;
+    border-top-color: #17a2b8 !important;
 }
+
+.asset-card.duvernay .asset-name,
+.asset-card.duvernay h4.asset-name {
+    color: #17a2b8 !important;
+}
+
 .asset-card.chauvin {
-    border-top-color: #ffc107;
+    border-top-color: #ffc107 !important;
+}
+
+.asset-card.chauvin .asset-name,
+.asset-card.chauvin h4.asset-name {
+    color: #f39c12 !important;
 }
 
 .map-container {
     position: relative; /* Needed for overlay positioning */
+    height: 400px !important; /* Increased from 350px to show more map area */
 }
 
 .map-overlay-message {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px !important; /* Reduced from 20px */
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 6px 12px !important; /* Reduced from 10px 20px */
+    border-radius: 4px !important; /* Reduced from 5px */
     z-index: 401; /* Above map tiles, below controls */
     pointer-events: none; /* Allow clicks to pass through to the map */
-    font-size: 1.1em;
+    font-size: 0.9em !important; /* Reduced from 1.1em */
     font-weight: bold;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important; /* Reduced shadow */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .slide-header h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    #map-container,
+    #asset-map-leaflet {
+        height: 300px !important;
+    }
+    
+    .asset-summary {
+        height: calc(100% - 330px) !important;
+    }
+    
+    .stat-item .stat-number {
+        font-size: 1.3rem !important;
+    }
+    
+    .asset-card .asset-name {
+        font-size: 1rem !important;
+    }
+    
+    .asset-card .asset-details div {
+        font-size: 0.8rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .asset-footprint-container {
+        height: calc(100vh - 100px) !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    .slide-header h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .slide-header h2.slide-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    #map-container,
+    #asset-map-leaflet {
+        height: 250px !important;
+    }
+    
+    .asset-summary {
+        height: calc(100% - 280px) !important;
+    }
+    
+    .cards-container {
+        flex-direction: column !important;
+        gap: 0.25rem !important;
+        padding: 0.25rem !important;
+    }
+    
+    .asset-card {
+        padding: 0.5rem !important;
+    }
+    
+    .stat-item .stat-number {
+        font-size: 1.2rem !important;
+    }
+    
+    .stat-item .stat-label {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Ensure no scrollbars appear */
+body, html {
+    overflow-x: hidden !important;
+}
+
+main.container-fluid {
+    padding: 0 !important;
+    height: calc(100vh - 140px) !important; /* Account for header and footer */
+    overflow: hidden !important;
 }

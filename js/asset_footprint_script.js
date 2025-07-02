@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeMap() {
-    const map = L.map('asset-map-leaflet').setView([51.5, -109.5], 6);
+    const map = L.map('asset-map-leaflet').setView([51.8, -109.0], 5.5);
 
     // Add a small delay to invalidate the size, allowing the container to render fully.
     setTimeout(() => {
