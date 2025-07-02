@@ -271,4 +271,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('✅ All functions loaded globally');
-console.log('Testing functions...'); console.log('refreshNews:', typeof refreshNews); console.log('openNewsDetail:', typeof openNewsDetail); console.log('openSource:', typeof openSource);
