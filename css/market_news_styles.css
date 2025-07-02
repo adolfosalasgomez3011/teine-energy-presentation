@@ -1,0 +1,576 @@
+/* Market News Slide - Modern Professional Design */
+/* Completely new design using Hatch color palette */
+
+:root {
+    --hatch-orange: #E84B37;        /* Corporate header orange */
+    --hatch-orange-alt: #E75300;    /* Corporate main orange */
+    --hatch-gray: #425563;          /* Corporate dark grey */
+    --hatch-medium-gray: #595959;   /* Corporate medium grey */
+    --hatch-light-gray: #E0E0E0;    /* Light grey for borders */
+    --hatch-background: #f4f4f4;    /* Corporate background */
+    --hatch-white: #FFFFFF;         /* Corporate white */
+    --teine-blue: #1E3A8A;          /* Teine Energy blue */
+    
+    /* New modern gradients */
+    --gradient-primary: linear-gradient(135deg, var(--hatch-orange) 0%, var(--hatch-orange-alt) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--teine-blue) 0%, #2563EB 100%);
+    --gradient-light: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+    
+    /* Modern shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+    
+    /* Spacing system */
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+}
+
+/* Main container with one-page constraints */
+.slide-container {
+    height: 100vh;
+    max-height: 100vh;
+    background: var(--gradient-light);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: var(--hatch-gray);
+    overflow: hidden;
+}
+
+/* Compact header for one-page layout */
+.slide-header {
+    background: var(--hatch-white);
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--hatch-light-gray);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.slide-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.slide-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--hatch-gray);
+    margin: 0 0 var(--space-xs) 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.slide-header h1 i {
+    color: var(--hatch-orange);
+    margin-right: var(--space-sm);
+    font-size: 0.9em;
+}
+
+.slide-header p {
+    font-size: 1rem;
+    color: var(--hatch-medium-gray);
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Compact main content for one-page layout */
+.slide-content {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px); /* Adjust based on header and footer height */
+}
+
+/* Compact news grid for one-page layout */
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    flex: 1;
+    overflow-y: auto;
+    height: calc(100% - 80px); /* Leave space for action buttons */
+}
+
+/* Featured news card spans full width but more compact */
+.news-card.featured {
+    grid-column: span 2;
+}
+
+/* Compact card design for one-page layout */
+.news-card {
+    background: var(--hatch-white);
+    border-radius: 12px;
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.news-card:hover::before {
+    transform: translateY(0);
+}
+
+/* News card header with compact badges */
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.news-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 16px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.news-badge.important {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+    color: white;
+}
+
+.news-badge.drilling {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+}
+
+.news-badge.acquisition {
+    background: linear-gradient(135deg, var(--teine-blue) 0%, #1E40AF 100%);
+    color: white;
+}
+
+.news-badge.leadership {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+    color: white;
+}
+
+.news-date {
+    font-size: 0.8rem;
+    color: var(--hatch-medium-gray);
+    font-weight: 500;
+}
+
+/* Compact typography for news content */
+.news-content {
+    margin-bottom: var(--space-sm);
+    flex: 1;
+}
+
+.news-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--hatch-gray);
+    margin: 0 0 var(--space-xs) 0;
+    line-height: 1.3;
+}
+
+.featured .news-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.news-excerpt {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--hatch-medium-gray);
+    margin: 0;
+}
+
+.news-excerpt strong {
+    color: var(--hatch-gray);
+    font-weight: 600;
+}
+
+/* Modern meta section with sophisticated buttons */
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(226, 232, 240, 0.5);
+    margin-top: auto;
+}
+
+.source-tag {
+    padding: var(--space-xs) var(--space-sm);
+    background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+    color: var(--hatch-medium-gray);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.source-tag:hover {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    transform: translateY(-1px) scale(1.05);
+}
+
+.read-more-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.read-more-btn.compact {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8rem;
+}
+
+.read-more-btn i {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover i {
+    transform: translateX(2px);
+}
+
+/* Compact action buttons for one-page layout */
+.quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+.action-btn {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 10px;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-width: 120px;
+    justify-content: center;
+}
+
+.action-btn.primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.action-btn.secondary {
+    background: var(--hatch-white);
+    color: var(--hatch-gray);
+    border: 2px solid var(--hatch-light-gray);
+}
+
+.action-btn.secondary:hover {
+    background: var(--gradient-secondary);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.action-btn.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.action-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.action-btn i {
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.action-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Compact footer design */
+.slide-footer {
+    background: var(--hatch-white);
+    border-top: 1px solid var(--hatch-light-gray);
+    padding: var(--space-sm) var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    color: var(--hatch-medium-gray);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.page-indicator {
+    background: var(--gradient-primary);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .slide-header {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .slide-header h1 {
+        font-size: 2rem;
+    }
+    
+    .slide-content {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .news-card.featured {
+        grid-column: span 1;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .action-btn {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .news-card {
+        padding: var(--space-md);
+    }
+    
+    .news-meta {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: stretch;
+    }
+    
+    .read-more-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animation classes for dynamic loading */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state styles */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--hatch-light-gray);
+    border-top: 2px solid var(--hatch-orange);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Success/notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--gradient-primary);
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.notification.info {
+    background: var(--gradient-secondary);
+}
+
+/* Additional animations for interactive elements */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ensure proper spacing and layout */
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(226, 232, 240, 0.5);
+    margin-top: auto;
+}
+
+/* Fix any layout issues */
+.slide-content {
+    height: calc(100vh - 200px); /* Adjust based on header and footer height */
+    overflow-y: auto;
+}
+
+.news-grid {
+    height: calc(100% - 80px); /* Leave space for action buttons */
+}
