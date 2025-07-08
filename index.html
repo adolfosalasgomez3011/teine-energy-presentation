@@ -1,479 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teine Energy - Complete Presentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Teine Energy - Reveal.js Presentation</title>
+    
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.min.css">
+    
     <style>
-        /* ===== HATCH CORPORATE DESIGN SYSTEM V1 ===== */
-        :root {
-            /* Hatch Brand Colors */
-            --hatch-orange: #E84B37;
-            --hatch-orange-alt: #E75300;
-            --hatch-medium-gray: #595959;
-            --hatch-light-gray: #A0AEC0;
-            --hatch-white: #FFFFFF;
-            --hatch-dark-gray: #2D3748;
-            
-            /* Sizing & Spacing */
-            --header-height: 60px;
-            --footer-height: 80px;
-            --nav-height: 60px;
-            --card-border-radius: 8px;
-            
-            /* Spacing Scale */
-            --spacing-sm: 0.5rem;   /* 8px */
-            --spacing-md: 1rem;     /* 16px */
-            --spacing-lg: 1.5rem;   /* 24px */
-            --spacing-xl: 2rem;     /* 32px */
+        /* Minimal Reveal.js overrides - only for navigation and responsiveness */
+        .reveal {
+            background: #000000 !important;
         }
-
-        /* ===== MASTER PRESENTATION LAYOUT ===== */
-        * {
+        
+        .reveal .slides {
+            text-align: left !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        .reveal .slides section {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        
+        .reveal .progress {
+            color: #00ff88 !important;
+            z-index: 1000 !important;
+        }
+        
+        .reveal .controls {
+            color: #00ff88 !important;
+            z-index: 1000 !important;
+        }
+        
+        .reveal .slide-number {
+            color: #00ff88 !important;
+            z-index: 1000 !important;
+        }
+        
+        /* Iframe styling for responsive content preservation */
+        .slide-iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .master-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        /* ===== HEADER STYLES ===== */
-        .master-header {
-            background: var(--hatch-white);
-            border-bottom: 2px solid var(--hatch-orange);
-            padding: 0 var(--spacing-lg);
-            height: var(--header-height);
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(232, 75, 55, 0.15);
-        }
-
-        .master-header-left {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            flex: 0 0 auto;
-        }
-
-        .master-header-logo {
-            max-height: 35px;
-            width: auto;
-        }
-
-        .master-header-title {
-            color: var(--hatch-orange);
-            font-weight: bold;
-            font-size: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 0.5px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-
-        .master-header-right {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            flex: 0 0 auto;
-            margin-left: auto;
-        }
-
-        .slide-counter {
-            color: var(--hatch-medium-gray);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* ===== MAIN CONTENT AREA ===== */
-        .master-content {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: white;
-        }
-
-        /* ===== NAVIGATION CONTROLS ===== */
-        .master-navigation {
-            background: var(--hatch-white);
-            border-top: 1px solid var(--hatch-light-gray);
-            padding: var(--spacing-md) var(--spacing-lg);
-            height: var(--nav-height);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-controls {
-            display: flex;
-            gap: var(--spacing-sm);
-        }
-
-        .nav-button {
-            background: var(--hatch-orange-alt);
-            color: var(--hatch-white);
-            border: none;
-            padding: var(--spacing-sm) var(--spacing-lg);
-            border-radius: var(--card-border-radius);
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(231, 83, 0, 0.3);
-            min-width: 100px;
-        }
-
-        .nav-button:hover:not(:disabled) {
-            background: var(--hatch-orange);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(231, 83, 0, 0.4);
-        }
-
-        .nav-button:disabled {
-            background: var(--hatch-light-gray);
-            color: var(--hatch-medium-gray);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .nav-button i {
-            margin-right: var(--spacing-sm);
-        }
-
-        /* ===== SLIDE INDICATOR ===== */
-        .slide-indicators {
-            display: flex;
-            gap: var(--spacing-sm);
-            align-items: center;
-        }
-
-        .indicator-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--hatch-light-gray);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .indicator-dot.active {
-            background: var(--hatch-orange);
-            transform: scale(1.5);
-        }
-
-        .indicator-dot:hover {
-            background: var(--hatch-orange-alt);
-        }
-
-        /* ===== LOADING STATE ===== */
-        .loading-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            transition: opacity 0.3s ease;
+            background: transparent;
         }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
+        
+        /* Ensure proper scaling on different devices */
+        @media (max-width: 1024px) {
+            .slide-iframe {
+                transform: scale(0.9);
+                transform-origin: top left;
+                width: 111%;
+                height: 111%;
+            }
         }
-
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--hatch-light-gray);
-            border-top: 4px solid var(--hatch-orange);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
+        
         @media (max-width: 768px) {
-            .master-header {
-                padding: 0 var(--spacing-md);
-            }
-            
-            .master-header-title {
-                font-size: 1.2rem;
-            }
-            
-            .slide-counter {
-                display: none;
-            }
-            
-            .nav-button {
-                min-width: 80px;
-                padding: var(--spacing-sm);
+            .slide-iframe {
+                transform: scale(0.75);
+                transform-origin: top left;
+                width: 133%;
+                height: 133%;
             }
         }
-
-        /* ===== SLIDE TRANSITION EFFECTS ===== */
-        .slide-iframe.fade-in {
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        
+        @media (max-width: 480px) {
+            .slide-iframe {
+                transform: scale(0.6);
+                transform-origin: top left;
+                width: 167%;
+                height: 167%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="master-container">
-        <!-- Header -->
-        <header class="master-header">
-            <div class="master-header-left">
-                <img src="https://jphbhfjceftswsnahwgc.supabase.co/storage/v1/object/public/presentation-assets/hatch_-_logo.png" 
-                     alt="Hatch Logo" class="master-header-logo">
-                <h1 class="master-header-title">HATCH ADVISORY</h1>
-            </div>
-            <div class="master-header-right">
-                <span class="slide-counter">
-                    <span id="current-slide">1</span> / <span id="total-slides">10</span>
-                </span>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="master-content">
-            <div class="loading-overlay" id="loading-overlay">
-                <div class="loading-spinner"></div>
-            </div>
-            <iframe id="slide-iframe" class="slide-iframe" src="slides/01_cover_slide.html" 
-                    title="Teine Energy Presentation Slide" aria-label="Current presentation slide"></iframe>
-        </main>
-
-        <!-- Navigation -->
-        <nav class="master-navigation">
-            <div class="nav-controls">
-                <button class="nav-button" id="prev-btn" disabled>
-                    <i class="fas fa-chevron-left"></i>Previous
-                </button>
-                <button class="nav-button" id="next-btn">
-                    <i class="fas fa-chevron-right"></i>Next
-                </button>
-            </div>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Cover Slide -->
+            <section data-background="#000000">
+                <iframe src="slides/01_cover_slide.html" class="slide-iframe" scrolling="no" title="Cover Slide"></iframe>
+            </section>
             
-            <div class="slide-indicators" id="slide-indicators">
-                <!-- Indicators will be generated by JavaScript -->
-            </div>
+            <!-- Manifesto -->
+            <section data-background="#000000">
+                <iframe src="slides/02_manifesto.html" class="slide-iframe" scrolling="no" title="Manifesto Slide"></iframe>
+            </section>
             
-            <div class="nav-controls">
-                <button class="nav-button" id="fullscreen-btn">
-                    <i class="fas fa-expand"></i>Fullscreen
-                </button>
-            </div>
-        </nav>
+            <!-- Summary -->
+            <section data-background="#000000">
+                <iframe src="slides/03_summary.html" class="slide-iframe" scrolling="no" title="Summary Slide"></iframe>
+            </section>
+            
+            <!-- Asset Footprint -->
+            <section data-background="#000000">
+                <iframe src="slides/04_asset_footprint.html" class="slide-iframe" scrolling="no" title="Asset Footprint Slide"></iframe>
+            </section>
+            
+            <!-- Financial -->
+            <section data-background="#000000">
+                <iframe src="slides/05_financial.html" class="slide-iframe" scrolling="no" title="Financial Slide"></iframe>
+            </section>
+            
+            <!-- Organization Chart -->
+            <section data-background="#000000">
+                <iframe src="slides/06_org_chart.html" class="slide-iframe" scrolling="no" title="Organization Chart Slide"></iframe>
+            </section>
+            
+            <!-- Strategic Focus -->
+            <section data-background="#000000">
+                <iframe src="slides/07_strategic_focus.html" class="slide-iframe" scrolling="no" title="Strategic Focus Slide"></iframe>
+            </section>
+            
+            <!-- Investment Focus -->
+            <section data-background="#000000">
+                <iframe src="slides/08_investment_focus.html" class="slide-iframe" scrolling="no" title="Investment Focus Slide"></iframe>
+            </section>
+            
+            <!-- Market News -->
+            <section data-background="#000000">
+                <iframe src="slides/09_market_news.html" class="slide-iframe" scrolling="no" title="Market News Slide"></iframe>
+            </section>
+            
+            <!-- Areas of Opportunity -->
+            <section data-background="#000000">
+                <iframe src="slides/10_areas_opportunity.html" class="slide-iframe" scrolling="no" title="Areas of Opportunity Slide"></iframe>
+            </section>
+            
+            <!-- Thank You -->
+            <section data-background="#000000">
+                <iframe src="slides/11_thank_you.html" class="slide-iframe" scrolling="no" title="Thank You Slide"></iframe>
+            </section>
+        </div>
     </div>
 
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+    
     <script>
-        class TeineEnergyPresentation {
-            constructor() {            this.slides = [
-                { file: '01_cover_slide.html', title: 'Cover Slide' },
-                { file: '02_manifesto.html', title: 'Our Manifesto' },
-                { file: '03_summary.html', title: 'Company Overview' },
-                { file: '04_asset_footprint.html', title: 'Asset Footprint' },
-                { file: '05_financial.html', title: 'Financial Highlights' },
-                { file: '06_org_chart.html', title: 'Organization Structure' },
-                { file: '07_strategic_focus.html', title: 'Strategic Focus' },
-                { file: '08_investment_focus.html', title: 'Investment Focus' },
-                { file: '09_market_news.html', title: 'Market News' },
-                { file: '10_areas_opportunity.html', title: 'Areas of Opportunity' },
-                { file: '11_thank_you.html', title: 'Thank You' }
-            ];
-                
-                this.currentSlideIndex = 0;
-                this.iframe = document.getElementById('slide-iframe');
-                this.loadingOverlay = document.getElementById('loading-overlay');
-                
-                this.initializeElements();
-                this.bindEvents();
-                this.generateIndicators();
-                this.updateNavigation();
-            }
-
-            initializeElements() {
-                this.prevBtn = document.getElementById('prev-btn');
-                this.nextBtn = document.getElementById('next-btn');
-                this.fullscreenBtn = document.getElementById('fullscreen-btn');
-                this.currentSlideSpan = document.getElementById('current-slide');
-                this.totalSlidesSpan = document.getElementById('total-slides');
-                this.indicatorsContainer = document.getElementById('slide-indicators');
-                
-                this.totalSlidesSpan.textContent = this.slides.length;
-            }
-
-            bindEvents() {
-                // Navigation buttons
-                this.prevBtn.addEventListener('click', () => this.previousSlide());
-                this.nextBtn.addEventListener('click', () => this.nextSlide());
-                this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
-                
-                // Keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    switch(e.key) {
-                        case 'ArrowLeft':
-                        case 'ArrowUp':
-                            e.preventDefault();
-                            this.previousSlide();
-                            break;
-                        case 'ArrowRight':
-                        case 'ArrowDown':
-                        case ' ':
-                            e.preventDefault();
-                            this.nextSlide();
-                            break;
-                        case 'Home':
-                            e.preventDefault();
-                            this.goToSlide(0);
-                            break;
-                        case 'End':
-                            e.preventDefault();
-                            this.goToSlide(this.slides.length - 1);
-                            break;
-                        case 'F11':
-                            e.preventDefault();
-                            this.toggleFullscreen();
-                            break;
-                    }
-                });
-
-                // Iframe load event
-                this.iframe.addEventListener('load', () => {
-                    this.hideLoading();
-                });
-            }
-
-            generateIndicators() {
-                this.indicatorsContainer.innerHTML = '';
-                this.slides.forEach((slide, index) => {
-                    const dot = document.createElement('div');
-                    dot.className = 'indicator-dot';
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => this.goToSlide(index));
-                    dot.title = slide.title;
-                    this.indicatorsContainer.appendChild(dot);
-                });
-            }
-
-            showLoading() {
-                this.loadingOverlay.classList.remove('hidden');
-            }
-
-            hideLoading() {
-                setTimeout(() => {
-                    this.loadingOverlay.classList.add('hidden');
-                }, 300);
-            }
-
-            goToSlide(index) {
-                if (index < 0 || index >= this.slides.length) return;
-                
-                this.showLoading();
-                this.currentSlideIndex = index;
-                
-                const slideFile = this.slides[index].file;
-                this.iframe.src = `slides/${slideFile}`;
-                this.iframe.classList.add('fade-in');
-                
-                this.updateNavigation();
-                this.updateIndicators();
-                
-                // Remove fade-in class after animation
-                setTimeout(() => {
-                    this.iframe.classList.remove('fade-in');
-                }, 300);
-            }
-
-            nextSlide() {
-                if (this.currentSlideIndex < this.slides.length - 1) {
-                    this.goToSlide(this.currentSlideIndex + 1);
-                }
-            }
-
-            previousSlide() {
-                if (this.currentSlideIndex > 0) {
-                    this.goToSlide(this.currentSlideIndex - 1);
-                }
-            }
-
-            updateNavigation() {
-                this.prevBtn.disabled = (this.currentSlideIndex === 0);
-                this.nextBtn.disabled = (this.currentSlideIndex === this.slides.length - 1);
-                this.currentSlideSpan.textContent = this.currentSlideIndex + 1;
-                
-                // Update document title
-                document.title = `Teine Energy - ${this.slides[this.currentSlideIndex].title}`;
-            }
-
-            updateIndicators() {
-                const dots = this.indicatorsContainer.querySelectorAll('.indicator-dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === this.currentSlideIndex);
-                });
-            }
-
-            toggleFullscreen() {
-                if (!document.fullscreenElement) {
-                    document.documentElement.requestFullscreen().catch(err => {
-                        console.log(`Error attempting to enable fullscreen: ${err.message}`);
-                    });
-                    this.fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>Exit Fullscreen';
-                } else {
-                    document.exitFullscreen();
-                    this.fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>Fullscreen';
-                }
-            }
-        }
-
-        // Initialize presentation when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            window.teinePresentation = new TeineEnergyPresentation();
+        // Initialize Reveal.js with responsive settings
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: false,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            // Full viewport usage
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            
+            // Navigation
+            keyboard: true,
+            touch: true,
+            loop: false,
+            
+            // UI
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            
+            // Disable auto-animations that might interfere
+            autoAnimateEasing: 'ease',
+            autoAnimateDuration: 0.4,
+            autoAnimateUnmatched: false
         });
-
-        // Handle fullscreen change events
-        document.addEventListener('fullscreenchange', () => {
-            const fullscreenBtn = document.getElementById('fullscreen-btn');
-            if (document.fullscreenElement) {
-                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>Exit Fullscreen';
-            } else {
-                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>Fullscreen';
+        
+        // Enhanced responsive iframe management
+        function optimizeIframes() {
+            const iframes = document.querySelectorAll('.slide-iframe');
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+            
+            iframes.forEach(iframe => {
+                // Ensure iframe is loaded and responsive
+                iframe.onload = function() {
+                    // Apply responsive scaling based on viewport
+                    if (vw < 480) {
+                        // Mobile phones
+                        iframe.style.transform = 'scale(0.6)';
+                        iframe.style.width = '167%';
+                        iframe.style.height = '167%';
+                    } else if (vw < 768) {
+                        // Tablets
+                        iframe.style.transform = 'scale(0.75)';
+                        iframe.style.width = '133%';
+                        iframe.style.height = '133%';
+                    } else if (vw < 1024) {
+                        // Small laptops
+                        iframe.style.transform = 'scale(0.9)';
+                        iframe.style.width = '111%';
+                        iframe.style.height = '111%';
+                    } else {
+                        // Desktop and large screens
+                        iframe.style.transform = 'scale(1)';
+                        iframe.style.width = '100vw';
+                        iframe.style.height = '100vh';
+                    }
+                };
+                
+                // Trigger load event if already loaded
+                if (iframe.complete) {
+                    iframe.onload();
+                }
+            });
+        }
+        
+        // Apply optimizations
+        document.addEventListener('DOMContentLoaded', optimizeIframes);
+        window.addEventListener('resize', optimizeIframes);
+        window.addEventListener('orientationchange', optimizeIframes);
+        
+        // Reoptimize on slide changes
+        Reveal.on('slidechanged', function(event) {
+            setTimeout(optimizeIframes, 100);
+        });
+        
+        // Preload next and previous slides for smoother transitions
+        Reveal.on('slidechanged', function(event) {
+            const currentSlide = event.indexh;
+            const totalSlides = Reveal.getTotalSlides();
+            
+            // Preload adjacent slides
+            if (currentSlide > 0) {
+                const prevIframe = document.querySelector(`section:nth-child(${currentSlide}) .slide-iframe`);
+                if (prevIframe && !prevIframe.src) {
+                    prevIframe.src = prevIframe.getAttribute('data-src');
+                }
+            }
+            
+            if (currentSlide < totalSlides - 1) {
+                const nextIframe = document.querySelector(`section:nth-child(${currentSlide + 2}) .slide-iframe`);
+                if (nextIframe && !nextIframe.src) {
+                    nextIframe.src = nextIframe.getAttribute('data-src');
+                }
             }
         });
     </script>
